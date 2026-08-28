@@ -1,12 +1,23 @@
 // ==========================================================
-// SAMAY KRISHI - FINAL SCRIPT
-// Login → Dashboard → Farmer Details → Procurement → Slot
+// SAMAY KRISHI - COMPLETE WORKING DEMO
+// Register → Login → Farmer Profile → Procurement Details
+// → Smart Slot Recommendation → Confirmation → Status
+// ==========================================================
+
+
+// ==========================================================
+// TRANSLATIONS
 // ==========================================================
 
 const translations = {
+
     en: {
+
         welcomeTitle: "Welcome to Samay Krishi",
-        welcomeText: "Direct connection between farmers and buyers. Transparent pricing. Fair trade.",
+
+        welcomeText:
+            "Direct connection between farmers and buyers. Transparent pricing. Fair trade.",
+
         selectRole: "Select Your Role",
 
         farmer: "Farmer",
@@ -22,29 +33,53 @@ const translations = {
 
         mobile: "Mobile Number (10 digits)",
         password: "Password",
+
         fullName: "Full Name",
+        farmerName: "Farmer Name",
+
         aadhaar: "Aadhaar Number (12 digits)",
         village: "Village Name",
+
         confirmPassword: "Confirm Password",
         passwordMin: "Password (min 8 characters)",
 
         dontHaveAccount: "Don't have an account?",
         registerHere: "Register here",
+
         haveAccount: "Already have an account?",
         loginHere: "Login here",
 
         continue: "Continue",
 
-        mobileError: "Please enter a valid 10-digit mobile number.",
-        aadhaarError: "Please enter a valid 12-digit Aadhaar number.",
-        passwordError: "Password must be at least 8 characters.",
-        passwordMismatch: "Passwords do not match.",
-        nameRequired: "Please enter your full name.",
-        villageRequired: "Please enter your village name.",
-        fieldRequired: "This field is required.",
+        mobileError:
+            "Please enter a valid 10-digit mobile number.",
 
-        loginSuccess: "Login Successful!",
-        registrationSuccess: "Registration Successful!",
+        aadhaarError:
+            "Please enter a valid 12-digit Aadhaar number.",
+
+        passwordError:
+            "Password must be at least 8 characters.",
+
+        passwordMismatch:
+            "Passwords do not match.",
+
+        nameRequired:
+            "Please enter your full name.",
+
+        farmerNameRequired:
+            "Please enter the farmer name.",
+
+        villageRequired:
+            "Please enter your village name.",
+
+        fieldRequired:
+            "This field is required.",
+
+        loginSuccess:
+            "Login Successful!",
+
+        registrationSuccess:
+            "Registration Successful!",
 
         welcomeMessage:
             "Welcome to Samay Krishi. Opening your farmer dashboard...",
@@ -55,66 +90,151 @@ const translations = {
         invalidCredentials:
             "Invalid mobile number, password or selected role.",
 
-        farmerDashboard: "Farmer Dashboard",
-        welcomeBack: "Welcome back,",
+        farmerDashboard:
+            "Farmer Dashboard",
+
+        welcomeBack:
+            "Welcome back,",
+
         dashboardMessage:
             "Let's make your procurement hassle-free.",
 
-        startProcurement: "Start Procurement",
-        findSlot: "Find Best Slot",
-        bestSlot: "Best Slot For You",
-        confirmSlot: "Confirm This Slot",
-        anotherSlot: "Choose Another Slot",
+        startProcurement:
+            "Start Procurement",
 
-        slotConfirmed: "Slot Confirmed",
-        registration: "Registration",
-        inQueue: "In Queue",
-        procurement: "Procurement",
-        payment: "Payment"
+        findSlot:
+            "Find Best Slot",
+
+        bestSlot:
+            "Best Slot For You",
+
+        confirmSlot:
+            "Confirm This Slot",
+
+        anotherSlot:
+            "Choose Another Slot",
+
+        slotConfirmed:
+            "Slot Confirmed",
+
+        registration:
+            "Registration",
+
+        inQueue:
+            "In Queue",
+
+        procurement:
+            "Procurement",
+
+        payment:
+            "Payment"
+
     },
 
+
     hi: {
-        welcomeTitle: "Samay Krishi में आपका स्वागत है",
+
+        welcomeTitle:
+            "Samay Krishi में आपका स्वागत है",
+
         welcomeText:
             "किसानों और खरीदारों के बीच सीधा संबंध। पारदर्शी मूल्य। न्यायसंगत व्यापार।",
-        selectRole: "अपनी भूमिका चुनें",
 
-        farmer: "किसान",
-        admin: "खरीद प्रशासक",
-        centre: "खरीद केंद्र",
+        selectRole:
+            "अपनी भूमिका चुनें",
 
-        farmerDesc: "अपनी उपज सीधे बेचें",
-        adminDesc: "खरीद गतिविधियों का प्रबंधन करें",
-        centreDesc: "संग्रहण केंद्रों का प्रबंधन करें",
+        farmer:
+            "किसान",
 
-        login: "लॉगिन",
-        register: "पंजीकरण",
+        admin:
+            "खरीद प्रशासक",
 
-        mobile: "मोबाइल नंबर (10 अंक)",
-        password: "पासवर्ड",
-        fullName: "पूरा नाम",
-        aadhaar: "आधार नंबर (12 अंक)",
-        village: "गांव का नाम",
-        confirmPassword: "पासवर्ड की पुष्टि करें",
-        passwordMin: "पासवर्ड (कम से कम 8 वर्ण)",
+        centre:
+            "खरीद केंद्र",
 
-        dontHaveAccount: "खाता नहीं है?",
-        registerHere: "यहां पंजीकरण करें",
-        haveAccount: "पहले से खाता है?",
-        loginHere: "यहां लॉगिन करें",
+        farmerDesc:
+            "अपनी उपज सीधे बेचें",
 
-        continue: "जारी रखें",
+        adminDesc:
+            "खरीद गतिविधियों का प्रबंधन करें",
 
-        mobileError: "कृपया सही 10-अंकीय मोबाइल नंबर दर्ज करें।",
-        aadhaarError: "कृपया सही 12-अंकीय आधार नंबर दर्ज करें।",
-        passwordError: "पासवर्ड कम से कम 8 वर्ण का होना चाहिए।",
-        passwordMismatch: "पासवर्ड मेल नहीं खाते।",
-        nameRequired: "कृपया अपना पूरा नाम दर्ज करें।",
-        villageRequired: "कृपया अपने गांव का नाम दर्ज करें।",
-        fieldRequired: "यह क्षेत्र आवश्यक है।",
+        centreDesc:
+            "संग्रहण केंद्रों का प्रबंधन करें",
 
-        loginSuccess: "लॉगिन सफल!",
-        registrationSuccess: "पंजीकरण सफल!",
+        login:
+            "लॉगिन",
+
+        register:
+            "पंजीकरण",
+
+        mobile:
+            "मोबाइल नंबर (10 अंक)",
+
+        password:
+            "पासवर्ड",
+
+        fullName:
+            "पूरा नाम",
+
+        farmerName:
+            "किसान का नाम",
+
+        aadhaar:
+            "आधार नंबर (12 अंक)",
+
+        village:
+            "गांव का नाम",
+
+        confirmPassword:
+            "पासवर्ड की पुष्टि करें",
+
+        passwordMin:
+            "पासवर्ड (कम से कम 8 वर्ण)",
+
+        dontHaveAccount:
+            "खाता नहीं है?",
+
+        registerHere:
+            "यहां पंजीकरण करें",
+
+        haveAccount:
+            "पहले से खाता है?",
+
+        loginHere:
+            "यहां लॉगिन करें",
+
+        continue:
+            "जारी रखें",
+
+        mobileError:
+            "कृपया सही 10-अंकीय मोबाइल नंबर दर्ज करें।",
+
+        aadhaarError:
+            "कृपया सही 12-अंकीय आधार नंबर दर्ज करें।",
+
+        passwordError:
+            "पासवर्ड कम से कम 8 वर्ण का होना चाहिए।",
+
+        passwordMismatch:
+            "पासवर्ड मेल नहीं खाते।",
+
+        nameRequired:
+            "कृपया अपना पूरा नाम दर्ज करें।",
+
+        farmerNameRequired:
+            "कृपया किसान का नाम दर्ज करें।",
+
+        villageRequired:
+            "कृपया अपने गांव का नाम दर्ज करें।",
+
+        fieldRequired:
+            "यह क्षेत्र आवश्यक है।",
+
+        loginSuccess:
+            "लॉगिन सफल!",
+
+        registrationSuccess:
+            "पंजीकरण सफल!",
 
         welcomeMessage:
             "Samay Krishi में आपका स्वागत है। किसान डैशबोर्ड खोला जा रहा है...",
@@ -125,28 +245,52 @@ const translations = {
         invalidCredentials:
             "मोबाइल नंबर, पासवर्ड या चुनी गई भूमिका गलत है।",
 
-        farmerDashboard: "किसान डैशबोर्ड",
-        welcomeBack: "वापसी पर स्वागत है,",
+        farmerDashboard:
+            "किसान डैशबोर्ड",
+
+        welcomeBack:
+            "वापसी पर स्वागत है,",
+
         dashboardMessage:
             "आइए आपकी खरीद प्रक्रिया को आसान बनाएं।",
 
-        startProcurement: "खरीद शुरू करें",
-        findSlot: "सबसे अच्छा स्लॉट खोजें",
-        bestSlot: "आपके लिए सबसे अच्छा स्लॉट",
-        confirmSlot: "इस स्लॉट की पुष्टि करें",
-        anotherSlot: "दूसरा स्लॉट चुनें",
+        startProcurement:
+            "खरीद शुरू करें",
 
-        slotConfirmed: "स्लॉट की पुष्टि",
-        registration: "पंजीकरण",
-        inQueue: "कतार में",
-        procurement: "खरीद",
-        payment: "भुगतान"
+        findSlot:
+            "सबसे अच्छा स्लॉट खोजें",
+
+        bestSlot:
+            "आपके लिए सबसे अच्छा स्लॉट",
+
+        confirmSlot:
+            "इस स्लॉट की पुष्टि करें",
+
+        anotherSlot:
+            "दूसरा स्लॉट चुनें",
+
+        slotConfirmed:
+            "स्लॉट की पुष्टि",
+
+        registration:
+            "पंजीकरण",
+
+        inQueue:
+            "कतार में",
+
+        procurement:
+            "खरीद",
+
+        payment:
+            "भुगतान"
+
     }
+
 };
 
 
 // ==========================================================
-// GLOBAL VARIABLES
+// GLOBAL STATE
 // ==========================================================
 
 let currentLanguage =
@@ -154,37 +298,67 @@ let currentLanguage =
 
 let selectedRole = null;
 
-let users =
-    JSON.parse(localStorage.getItem("samayKrishiUsers")) || [];
+let users = [];
 
 let currentUser = null;
 
 let procurementData = null;
+
+let recommendedSlots = [];
+
+let currentSlotIndex = 0;
+
+
+// ==========================================================
+// LOAD USERS SAFELY
+// ==========================================================
+
+try {
+
+    users =
+        JSON.parse(
+            localStorage.getItem("samayKrishiUsers")
+        ) || [];
+
+} catch (error) {
+
+    users = [];
+
+}
 
 
 // ==========================================================
 // INITIALIZATION
 // ==========================================================
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-    setupLanguage();
+        setupLanguage();
 
-    setupRoleCards();
+        setupRoleCards();
 
-    setupAuthentication();
+        setupAuthentication();
 
-    setupDashboard();
+        setupDashboard();
 
-    setupProcurement();
+        setupProcurement();
 
-    setupInputValidation();
+        setupInputValidation();
 
-    updateLanguageUI();
+        setupHomepageRegister();
 
-    checkExistingLogin();
+        updateLanguageUI();
 
-});
+        checkExistingLogin();
+
+        console.log(
+            "Samay Krishi loaded successfully."
+        );
+
+    }
+);
 
 
 // ==========================================================
@@ -194,7 +368,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function t(key) {
 
     return (
-        translations[currentLanguage][key] ||
+        translations[currentLanguage]?.[key] ||
         translations.en[key] ||
         key
     );
@@ -203,34 +377,49 @@ function t(key) {
 
 
 // ==========================================================
-// LANGUAGE SYSTEM
+// LANGUAGE
 // ==========================================================
 
 function setupLanguage() {
 
-    document.querySelectorAll(".lang-btn").forEach(btn => {
+    document
+        .querySelectorAll(".lang-btn")
+        .forEach(button => {
 
-        btn.addEventListener("click", () => {
+            button.addEventListener(
+                "click",
+                () => {
 
-            changeLanguage(btn.dataset.lang);
+                    changeLanguage(
+                        button.dataset.lang
+                    );
 
-        });
-
-    });
-
-
-    const dashboardLang =
-        document.getElementById("dashboardLangBtn");
-
-    if (dashboardLang) {
-
-        dashboardLang.addEventListener("click", () => {
-
-            changeLanguage(
-                currentLanguage === "en" ? "hi" : "en"
+                }
             );
 
         });
+
+
+    const dashboardLang =
+        document.getElementById(
+            "dashboardLangBtn"
+        );
+
+
+    if (dashboardLang) {
+
+        dashboardLang.addEventListener(
+            "click",
+            () => {
+
+                changeLanguage(
+                    currentLanguage === "en"
+                        ? "hi"
+                        : "en"
+                );
+
+            }
+        );
 
     }
 
@@ -258,32 +447,39 @@ function updateLanguageUI() {
     document.documentElement.lang =
         currentLanguage;
 
-    document.querySelectorAll(
-        "[data-en][data-hi]"
-    ).forEach(element => {
 
-        const value =
-            element.getAttribute(
-                `data-${currentLanguage}`
+    document
+        .querySelectorAll(
+            "[data-en][data-hi]"
+        )
+        .forEach(element => {
+
+            const value =
+                element.getAttribute(
+                    `data-${currentLanguage}`
+                );
+
+            if (value !== null) {
+
+                element.textContent =
+                    value;
+
+            }
+
+        });
+
+
+    document
+        .querySelectorAll(".lang-btn")
+        .forEach(button => {
+
+            button.classList.toggle(
+                "active",
+                button.dataset.lang ===
+                currentLanguage
             );
 
-        if (value) {
-
-            element.textContent = value;
-
-        }
-
-    });
-
-
-    document.querySelectorAll(".lang-btn").forEach(btn => {
-
-        btn.classList.toggle(
-            "active",
-            btn.dataset.lang === currentLanguage
-        );
-
-    });
+        });
 
 
     updateRoleLabels();
@@ -294,52 +490,97 @@ function updateLanguageUI() {
 
 
 // ==========================================================
-// ROLE SYSTEM
+// ROLE CARDS
 // ==========================================================
 
 function setupRoleCards() {
 
-    document.querySelectorAll(".role-card").forEach(card => {
+    document
+        .querySelectorAll(".role-card")
+        .forEach(card => {
 
-        card.addEventListener("click", () => {
+            card.addEventListener(
+                "click",
+                () => {
 
-            const role =
-                card.dataset.role;
+                    const role =
+                        card.dataset.role;
 
-            openAuthModal(role);
+                    openAuthModal(role);
+
+                }
+            );
 
         });
 
-    });
+}
+
+
+// ==========================================================
+// HOMEPAGE REGISTER BUTTON
+// ==========================================================
+
+function setupHomepageRegister() {
+
+    const registerButton =
+        document.getElementById(
+            "homepageRegisterBtn"
+        );
+
+
+    if (!registerButton) return;
+
+
+    registerButton.addEventListener(
+        "click",
+        () => {
+
+            openAuthModal("farmer");
+
+            switchAuthTab("register");
+
+        }
+    );
 
 }
 
+
+// ==========================================================
+// ROLE LABEL
+// ==========================================================
 
 function updateRoleLabels() {
 
     if (!selectedRole) return;
 
+
     const roleName =
         t(selectedRole);
 
-    const roleLabel =
-        document.getElementById("roleLabel");
 
-    const registerRoleLabel =
+    const loginLabel =
+        document.getElementById(
+            "roleLabel"
+        );
+
+
+    const registerLabel =
         document.getElementById(
             "registerRoleLabel"
         );
 
-    if (roleLabel) {
 
-        roleLabel.textContent =
+    if (loginLabel) {
+
+        loginLabel.textContent =
             `${t("login")} as ${roleName}`;
 
     }
 
-    if (registerRoleLabel) {
 
-        registerRoleLabel.textContent =
+    if (registerLabel) {
+
+        registerLabel.textContent =
             `${t("register")} as ${roleName}`;
 
     }
@@ -348,130 +589,142 @@ function updateRoleLabels() {
 
 
 // ==========================================================
-// AUTHENTICATION SETUP
+// AUTH SETUP
 // ==========================================================
 
 function setupAuthentication() {
 
     const closeModal =
-        document.getElementById("closeModal");
+        document.getElementById(
+            "closeModal"
+        );
+
 
     const closeSuccess =
-        document.getElementById("closeSuccess");
+        document.getElementById(
+            "closeSuccess"
+        );
+
 
     const toRegister =
-        document.getElementById("toRegister");
+        document.getElementById(
+            "toRegister"
+        );
+
 
     const toLogin =
-        document.getElementById("toLogin");
+        document.getElementById(
+            "toLogin"
+        );
+
 
     const loginForm =
-        document.getElementById("loginForm");
+        document.getElementById(
+            "loginForm"
+        );
+
 
     const registerForm =
-        document.getElementById("registerForm");
-
-
-    if (closeModal) {
-
-        closeModal.addEventListener(
-            "click",
-            closeAuthModal
+        document.getElementById(
+            "registerForm"
         );
 
-    }
+
+    closeModal?.addEventListener(
+        "click",
+        closeAuthModal
+    );
 
 
-    if (closeSuccess) {
-
-        closeSuccess.addEventListener(
-            "click",
-            closeSuccessModal
-        );
-
-    }
+    closeSuccess?.addEventListener(
+        "click",
+        closeSuccessModal
+    );
 
 
-    if (toRegister) {
+    toRegister?.addEventListener(
+        "click",
+        event => {
 
-        toRegister.addEventListener("click", e => {
-
-            e.preventDefault();
+            event.preventDefault();
 
             switchAuthTab("register");
 
-        });
+        }
+    );
 
-    }
 
+    toLogin?.addEventListener(
+        "click",
+        event => {
 
-    if (toLogin) {
-
-        toLogin.addEventListener("click", e => {
-
-            e.preventDefault();
+            event.preventDefault();
 
             switchAuthTab("login");
 
-        });
-
-    }
-
-
-    if (loginForm) {
-
-        loginForm.addEventListener(
-            "submit",
-            handleLogin
-        );
-
-    }
+        }
+    );
 
 
-    if (registerForm) {
+    loginForm?.addEventListener(
+        "submit",
+        handleLogin
+    );
 
-        registerForm.addEventListener(
-            "submit",
-            handleRegister
-        );
 
-    }
+    registerForm?.addEventListener(
+        "submit",
+        handleRegister
+    );
 
 
     const authModal =
-        document.getElementById("authModal");
+        document.getElementById(
+            "authModal"
+        );
 
-    if (authModal) {
 
-        authModal.addEventListener("click", e => {
+    authModal?.addEventListener(
+        "click",
+        event => {
 
-            if (e.target === authModal) {
+            if (
+                event.target ===
+                authModal
+            ) {
 
                 closeAuthModal();
 
             }
 
-        });
-
-    }
+        }
+    );
 
 }
 
 
 // ==========================================================
-// AUTH MODAL
+// OPEN AUTH
 // ==========================================================
 
 function openAuthModal(role) {
 
     selectedRole = role;
 
+
     const modal =
-        document.getElementById("authModal");
+        document.getElementById(
+            "authModal"
+        );
+
 
     if (!modal) return;
 
-    modal.classList.remove("hidden");
+
+    modal.classList.remove(
+        "hidden"
+    );
+
 
     switchAuthTab("login");
 
@@ -482,41 +735,50 @@ function openAuthModal(role) {
 }
 
 
+// ==========================================================
+// CLOSE AUTH
+// ==========================================================
+
 function closeAuthModal() {
 
-    const modal =
-        document.getElementById("authModal");
-
-    if (modal) {
-
-        modal.classList.add("hidden");
-
-    }
+    document
+        .getElementById("authModal")
+        ?.classList.add("hidden");
 
 }
 
 
+// ==========================================================
+// SWITCH LOGIN / REGISTER
+// ==========================================================
+
 function switchAuthTab(tab) {
 
-    document.querySelectorAll(".auth-tab")
-        .forEach(el =>
-            el.classList.remove("active")
-        );
+    document
+        .querySelectorAll(".auth-tab")
+        .forEach(element => {
+
+            element.classList.remove(
+                "active"
+            );
+
+        });
 
 
     if (tab === "login") {
 
-        document.getElementById(
-            "loginTab"
-        )?.classList.add("active");
+        document
+            .getElementById("loginTab")
+            ?.classList.add("active");
 
     } else {
 
-        document.getElementById(
-            "registerTab"
-        )?.classList.add("active");
+        document
+            .getElementById("registerTab")
+            ?.classList.add("active");
 
     }
+
 
     clearAllErrors();
 
@@ -548,46 +810,52 @@ function validatePassword(value) {
 }
 
 
-function showError(id, message) {
+function showError(
+    inputId,
+    message
+) {
 
     const input =
-        document.getElementById(id);
+        document.getElementById(
+            inputId
+        );
+
 
     const error =
         document.getElementById(
-            `${id}Error`
+            `${inputId}Error`
         );
 
-    if (input) {
 
-        input.classList.add("error");
+    input?.classList.add("error");
 
-    }
 
     if (error) {
 
-        error.textContent = message;
+        error.textContent =
+            message;
 
     }
 
 }
 
 
-function clearError(id) {
+function clearError(inputId) {
 
     const input =
-        document.getElementById(id);
+        document.getElementById(
+            inputId
+        );
+
 
     const error =
         document.getElementById(
-            `${id}Error`
+            `${inputId}Error`
         );
 
-    if (input) {
 
-        input.classList.remove("error");
+    input?.classList.remove("error");
 
-    }
 
     if (error) {
 
@@ -600,22 +868,28 @@ function clearError(id) {
 
 function clearAllErrors() {
 
-    document.querySelectorAll(
-        ".error-message"
-    ).forEach(el => {
+    document
+        .querySelectorAll(
+            ".error-message"
+        )
+        .forEach(element => {
 
-        el.textContent = "";
+            element.textContent = "";
 
-    });
+        });
 
 
-    document.querySelectorAll(
-        ".form-input"
-    ).forEach(el => {
+    document
+        .querySelectorAll(
+            ".form-input"
+        )
+        .forEach(element => {
 
-        el.classList.remove("error");
+            element.classList.remove(
+                "error"
+            );
 
-    });
+        });
 
 }
 
@@ -624,9 +898,9 @@ function clearAllErrors() {
 // LOGIN
 // ==========================================================
 
-function handleLogin(e) {
+function handleLogin(event) {
 
-    e.preventDefault();
+    event.preventDefault();
 
     clearAllErrors();
 
@@ -634,12 +908,13 @@ function handleLogin(e) {
     const mobile =
         document.getElementById(
             "loginMobile"
-        ).value.trim();
+        )?.value.trim() || "";
+
 
     const password =
         document.getElementById(
             "loginPassword"
-        ).value;
+        )?.value || "";
 
 
     let valid = true;
@@ -673,10 +948,11 @@ function handleLogin(e) {
 
 
     const user =
-        users.find(u =>
-            u.mobile === mobile &&
-            u.password === password &&
-            u.role === selectedRole
+        users.find(
+            item =>
+                item.mobile === mobile &&
+                item.password === password &&
+                item.role === selectedRole
         );
 
 
@@ -691,8 +967,8 @@ function handleLogin(e) {
     }
 
 
-    // Save current user
     currentUser = user;
+
 
     localStorage.setItem(
         "samayKrishiLoggedInUser",
@@ -700,24 +976,24 @@ function handleLogin(e) {
     );
 
 
-    // Show success
     showSuccessModal(
         t("loginSuccess"),
         t("welcomeMessage")
     );
 
 
-    // IMPORTANT:
-    // After 1.5 sec open dashboard
-    setTimeout(() => {
+    setTimeout(
+        () => {
 
-        closeAuthModal();
+            closeAuthModal();
 
-        closeSuccessModal();
+            closeSuccessModal();
 
-        openDashboard(user);
+            openDashboard(user);
 
-    }, 1500);
+        },
+        1000
+    );
 
 }
 
@@ -726,9 +1002,9 @@ function handleLogin(e) {
 // REGISTRATION
 // ==========================================================
 
-function handleRegister(e) {
+function handleRegister(event) {
 
-    e.preventDefault();
+    event.preventDefault();
 
     clearAllErrors();
 
@@ -736,32 +1012,43 @@ function handleRegister(e) {
     const name =
         document.getElementById(
             "regName"
-        ).value.trim();
+        )?.value.trim() || "";
+
+
+    const farmerName =
+        document.getElementById(
+            "regFarmerName"
+        )?.value.trim() || "";
+
 
     const mobile =
         document.getElementById(
             "regMobile"
-        ).value.trim();
+        )?.value.trim() || "";
+
 
     const aadhaar =
         document.getElementById(
             "regAadhaar"
-        ).value.trim();
+        )?.value.trim() || "";
+
 
     const village =
         document.getElementById(
             "regVillage"
-        ).value.trim();
+        )?.value.trim() || "";
+
 
     const password =
         document.getElementById(
             "regPassword"
-        ).value;
+        )?.value || "";
+
 
     const confirmPassword =
         document.getElementById(
             "regConfirmPassword"
-        ).value;
+        )?.value || "";
 
 
     let valid = true;
@@ -772,6 +1059,18 @@ function handleRegister(e) {
         showError(
             "regName",
             t("nameRequired")
+        );
+
+        valid = false;
+
+    }
+
+
+    if (!farmerName) {
+
+        showError(
+            "regFarmerName",
+            t("farmerNameRequired")
         );
 
         valid = false;
@@ -793,7 +1092,8 @@ function handleRegister(e) {
 
     if (
         users.some(
-            u => u.mobile === mobile
+            user =>
+                user.mobile === mobile
         )
     ) {
 
@@ -843,7 +1143,10 @@ function handleRegister(e) {
     }
 
 
-    if (password !== confirmPassword) {
+    if (
+        password !==
+        confirmPassword
+    ) {
 
         showError(
             "regConfirmPassword",
@@ -860,24 +1163,35 @@ function handleRegister(e) {
 
     const newUser = {
 
-        id: Date.now(),
+        id:
+            Date.now(),
 
-        role: selectedRole,
+        role:
+            selectedRole || "farmer",
 
-        name: name,
+        name:
+            name,
 
-        mobile: mobile,
+        farmerName:
+            farmerName,
 
-        aadhaar: aadhaar,
+        mobile:
+            mobile,
 
-        village: village,
+        aadhaar:
+            aadhaar,
 
-        password: password,
+        village:
+            village,
+
+        password:
+            password,
 
         createdAt:
             new Date().toISOString(),
 
-        procurement: null
+        procurement:
+            null
 
     };
 
@@ -897,17 +1211,44 @@ function handleRegister(e) {
     );
 
 
-    setTimeout(() => {
+    setTimeout(
+        () => {
 
-        closeSuccessModal();
+            closeSuccessModal();
 
-        switchAuthTab("login");
+            switchAuthTab("login");
 
-        document.getElementById(
-            "loginMobile"
-        ).value = mobile;
 
-    }, 1800);
+            const loginMobile =
+                document.getElementById(
+                    "loginMobile"
+                );
+
+
+            if (loginMobile) {
+
+                loginMobile.value =
+                    mobile;
+
+            }
+
+
+            const loginPassword =
+                document.getElementById(
+                    "loginPassword"
+                );
+
+
+            if (loginPassword) {
+
+                loginPassword.value =
+                    "";
+
+            }
+
+        },
+        1300
+    );
 
 }
 
@@ -921,57 +1262,36 @@ function showSuccessModal(
     message
 ) {
 
-    const titleElement =
-        document.getElementById(
-            "successTitle"
-        );
-
-    const messageElement =
-        document.getElementById(
-            "successMessage"
-        );
-
-    const modal =
-        document.getElementById(
-            "successModal"
-        );
+    setText(
+        "successTitle",
+        title
+    );
 
 
-    if (titleElement) {
+    setText(
+        "successMessage",
+        message
+    );
 
-        titleElement.textContent = title;
 
-    }
-
-    if (messageElement) {
-
-        messageElement.textContent =
-            message;
-
-    }
-
-    if (modal) {
-
-        modal.classList.remove(
-            "hidden"
-        );
-
-    }
+    document
+        .getElementById("successModal")
+        ?.classList.remove("hidden");
 
 }
 
 
 function closeSuccessModal() {
 
-    document.getElementById(
-        "successModal"
-    )?.classList.add("hidden");
+    document
+        .getElementById("successModal")
+        ?.classList.add("hidden");
 
 }
 
 
 // ==========================================================
-// NOTIFICATION
+// ERROR NOTIFICATION
 // ==========================================================
 
 function showNotification(message) {
@@ -981,23 +1301,29 @@ function showNotification(message) {
             "errorNotification"
         );
 
+
     if (!notification) return;
+
 
     notification.textContent =
         message;
+
 
     notification.classList.remove(
         "hidden"
     );
 
 
-    setTimeout(() => {
+    setTimeout(
+        () => {
 
-        notification.classList.add(
-            "hidden"
-        );
+            notification.classList.add(
+                "hidden"
+            );
 
-    }, 3500);
+        },
+        3500
+    );
 
 }
 
@@ -1006,27 +1332,31 @@ function showNotification(message) {
 // DASHBOARD
 // ==========================================================
 
+function setupDashboard() {
+
+    document
+        .getElementById("logoutBtn")
+        ?.addEventListener(
+            "click",
+            logoutUser
+        );
+
+
+    document
+        .getElementById("startProcurementBtn")
+        ?.addEventListener(
+            "click",
+            openProcurementModal
+        );
+
+}
+
+
 function openDashboard(user) {
 
-    const dashboard =
-        document.getElementById(
-            "farmerDashboard"
-        );
-
-    const container =
-        document.querySelector(
-            ".container"
-        );
-
-    const languageToggle =
-        document.querySelector(
-            ".language-toggle"
-        );
+    if (!user) return;
 
 
-    // Currently dashboard is designed for farmer.
-    // Admin/Centre can still login but dashboard
-    // is only opened for farmer.
     if (user.role !== "farmer") {
 
         showNotification(
@@ -1038,36 +1368,46 @@ function openDashboard(user) {
     }
 
 
-    if (container) {
-
-        container.style.display =
-            "none";
-
-    }
-
-
-    if (languageToggle) {
-
-        languageToggle.style.display =
-            "none";
-
-    }
-
-
-    if (dashboard) {
-
-        dashboard.classList.remove(
-            "hidden"
+    const container =
+        document.querySelector(
+            ".container"
         );
 
-        dashboard.classList.add(
-            "dashboard-visible"
+
+    const languageToggle =
+        document.querySelector(
+            ".language-toggle"
         );
 
-    }
+
+    const dashboard =
+        document.getElementById(
+            "farmerDashboard"
+        );
+
+
+    container &&
+        (container.style.display =
+            "none");
+
+
+    languageToggle &&
+        (languageToggle.style.display =
+            "none");
+
+
+    dashboard?.classList.remove(
+        "hidden"
+    );
+
+
+    dashboard?.classList.add(
+        "dashboard-visible"
+    );
 
 
     currentUser = user;
+
 
     fillFarmerProfile(user);
 
@@ -1080,29 +1420,23 @@ function openDashboard(user) {
 
 function closeDashboard() {
 
-    const dashboard =
-        document.getElementById(
+    document
+        .getElementById(
             "farmerDashboard"
-        );
+        )
+        ?.classList.add("hidden");
+
 
     const container =
         document.querySelector(
             ".container"
         );
 
+
     const languageToggle =
         document.querySelector(
             ".language-toggle"
         );
-
-
-    if (dashboard) {
-
-        dashboard.classList.add(
-            "hidden"
-        );
-
-    }
 
 
     if (container) {
@@ -1123,33 +1457,41 @@ function closeDashboard() {
 }
 
 
+// ==========================================================
+// FARMER PROFILE
+// ==========================================================
+
 function fillFarmerProfile(user) {
 
-    const name =
-        user.name || "-";
-
-    // Existing HTML has both Name and Farmer Name.
-    // We use the registered farmer name for both
-    // without changing the HTML.
     setText(
         "dashboardFarmerName",
-        name
+        user.farmerName ||
+        user.name ||
+        "-"
     );
+
 
     setText(
         "profileName",
-        name
+        user.name ||
+        "-"
     );
+
 
     setText(
         "profileFarmerName",
-        name
+        user.farmerName ||
+        user.name ||
+        "-"
     );
+
 
     setText(
         "profileMobile",
-        user.mobile || "-"
+        user.mobile ||
+        "-"
     );
+
 
     setText(
         "profileAadhaar",
@@ -1158,72 +1500,42 @@ function fillFarmerProfile(user) {
         )
     );
 
+
     setText(
         "profileVillage",
-        user.village || "-"
+        user.village ||
+        "-"
     );
 
 }
 
 
-function maskAadhaar(aadhaar) {
+function maskAadhaar(value) {
 
-    if (!aadhaar) return "-";
+    if (!value) return "-";
 
-    // Only last 4 digits visible
-    return "XXXX XXXX " +
-        aadhaar.slice(-4);
+
+    return (
+        "XXXX XXXX " +
+        value.slice(-4)
+    );
 
 }
 
 
-function setText(id, value) {
+function setText(
+    id,
+    value
+) {
 
     const element =
         document.getElementById(id);
+
 
     if (element) {
 
         element.textContent =
             value;
-
-    }
-
-}
-
-
-// ==========================================================
-// DASHBOARD BUTTONS
-// ==========================================================
-
-function setupDashboard() {
-
-    const logoutBtn =
-        document.getElementById(
-            "logoutBtn"
-        );
-
-    if (logoutBtn) {
-
-        logoutBtn.addEventListener(
-            "click",
-            logoutUser
-        );
-
-    }
-
-
-    const startBtn =
-        document.getElementById(
-            "startProcurementBtn"
-        );
-
-    if (startBtn) {
-
-        startBtn.addEventListener(
-            "click",
-            openProcurementModal
-        );
 
     }
 
@@ -1240,11 +1552,25 @@ function logoutUser() {
         "samayKrishiLoggedInUser"
     );
 
+
     currentUser = null;
 
     procurementData = null;
 
+    recommendedSlots = [];
+
+    currentSlotIndex = 0;
+
+
     closeDashboard();
+
+
+    document
+        .getElementById(
+            "loginForm"
+        )
+        ?.reset();
+
 
     window.scrollTo({
         top: 0,
@@ -1255,92 +1581,62 @@ function logoutUser() {
 
 
 // ==========================================================
-// PROCUREMENT MODAL
+// PROCUREMENT
 // ==========================================================
 
 function setupProcurement() {
 
-    const closeBtn =
-        document.getElementById(
+    document
+        .getElementById(
             "closeProcurementModal"
-        );
-
-    const procurementForm =
-        document.getElementById(
-            "procurementForm"
-        );
-
-    const confirmBtn =
-        document.getElementById(
-            "confirmSlotBtn"
-        );
-
-    const changeBtn =
-        document.getElementById(
-            "changeSlotBtn"
-        );
-
-
-    if (closeBtn) {
-
-        closeBtn.addEventListener(
+        )
+        ?.addEventListener(
             "click",
             closeProcurementModal
         );
 
-    }
 
-
-    if (procurementForm) {
-
-        procurementForm.addEventListener(
+    document
+        .getElementById(
+            "procurementForm"
+        )
+        ?.addEventListener(
             "submit",
             handleProcurementSubmit
         );
 
-    }
 
-
-    if (confirmBtn) {
-
-        confirmBtn.addEventListener(
+    document
+        .getElementById(
+            "confirmSlotBtn"
+        )
+        ?.addEventListener(
             "click",
             confirmSlot
         );
 
-    }
 
-
-    if (changeBtn) {
-
-        changeBtn.addEventListener(
+    document
+        .getElementById(
+            "changeSlotBtn"
+        )
+        ?.addEventListener(
             "click",
-            () => {
-
-                closeSlotModal();
-
-                openProcurementModal();
-
-            }
+            chooseAnotherSlot
         );
 
-    }
 
-
-    const procurementModal =
-        document.getElementById(
+    document
+        .getElementById(
             "procurementModal"
-        );
-
-    if (procurementModal) {
-
-        procurementModal.addEventListener(
+        )
+        ?.addEventListener(
             "click",
-            e => {
+            event => {
 
                 if (
-                    e.target ===
-                    procurementModal
+                    event.target.id ===
+                    "procurementModal"
                 ) {
 
                     closeProcurementModal();
@@ -1350,10 +1646,33 @@ function setupProcurement() {
             }
         );
 
-    }
+
+    document
+        .getElementById(
+            "slotModal"
+        )
+        ?.addEventListener(
+            "click",
+            event => {
+
+                if (
+                    event.target.id ===
+                    "slotModal"
+                ) {
+
+                    closeSlotModal();
+
+                }
+
+            }
+        );
 
 }
 
+
+// ==========================================================
+// OPEN PROCUREMENT
+// ==========================================================
 
 function openProcurementModal() {
 
@@ -1373,71 +1692,79 @@ function openProcurementModal() {
             "procurementModal"
         );
 
-    if (!modal) return;
 
-
-    // Set minimum selling date to today
     const dateInput =
         document.getElementById(
             "sellingDate"
         );
 
+
     if (dateInput) {
 
         const today =
-            new Date()
-                .toISOString()
-                .split("T")[0];
+            getLocalDate();
 
-        dateInput.min = today;
+        dateInput.min =
+            today;
 
     }
 
 
-    modal.classList.remove(
+    modal?.classList.remove(
         "hidden"
     );
 
 }
 
 
+// ==========================================================
+// CLOSE PROCUREMENT
+// ==========================================================
+
 function closeProcurementModal() {
 
-    document.getElementById(
-        "procurementModal"
-    )?.classList.add("hidden");
+    document
+        .getElementById(
+            "procurementModal"
+        )
+        ?.classList.add("hidden");
 
 }
 
 
 // ==========================================================
-// PROCUREMENT FORM
+// HANDLE PROCUREMENT
 // ==========================================================
 
-function handleProcurementSubmit(e) {
+function handleProcurementSubmit(event) {
 
-    e.preventDefault();
+    event.preventDefault();
 
 
     const crop =
         document.getElementById(
             "cropType"
-        ).value;
+        )?.value || "";
+
 
     const date =
         document.getElementById(
             "sellingDate"
-        ).value;
+        )?.value || "";
+
 
     const weight =
-        document.getElementById(
-            "cropWeight"
-        ).value;
+        Number(
+            document.getElementById(
+                "cropWeight"
+            )?.value || 0
+        );
+
 
     const centre =
         document.getElementById(
             "preferredCentre"
-        ).value;
+        )?.value || "";
 
 
     if (
@@ -1447,34 +1774,56 @@ function handleProcurementSubmit(e) {
         !centre
     ) {
 
+        showNotification(
+            "Please complete all procurement details."
+        );
+
         return;
 
     }
 
 
-    // Save user's requirements
+    if (weight <= 0) {
+
+        showNotification(
+            "Weight must be greater than 0 kg."
+        );
+
+        return;
+
+    }
+
+
     procurementData = {
 
-        crop: crop,
+        crop:
+            crop,
 
-        date: date,
+        date:
+            date,
 
-        weight: Number(weight),
+        weight:
+            weight,
 
-        centre: centre
+        centre:
+            centre
 
     };
 
 
-    // Generate smart recommendation
-    const recommendation =
+    recommendedSlots =
         generateSlotRecommendation(
             procurementData
         );
 
 
+    currentSlotIndex = 0;
+
+
     displaySlotRecommendation(
-        recommendation
+        recommendedSlots[
+            currentSlotIndex
+        ]
     );
 
 
@@ -1484,88 +1833,172 @@ function handleProcurementSubmit(e) {
 
 
 // ==========================================================
-// SMART SLOT RECOMMENDATION
+// SMART SLOT ENGINE
 // ==========================================================
 
-function generateSlotRecommendation(data) {
+function generateSlotRecommendation(
+    data
+) {
 
     /*
-        Prototype smart recommendation engine.
+        DEMO SMART SLOT ENGINE
 
-        In a real SIH project this can later be
-        connected to a backend/API containing:
-
-        - centre capacity
-        - current queue
-        - farmer count
-        - procurement timings
-        - available slots
+        In the final production system,
+        these slots should come from a backend
+        containing real centre capacity,
+        queue length and available timings.
     */
 
 
-    const slots = [
+    const allSlots = [
 
         {
-            time: "08:00 AM - 10:00 AM",
-            queue: 8
+            time:
+                "08:00 AM - 10:00 AM",
+
+            queue:
+                8
         },
 
         {
-            time: "10:00 AM - 12:00 PM",
-            queue: 14
+            time:
+                "10:00 AM - 12:00 PM",
+
+            queue:
+                14
         },
 
         {
-            time: "12:00 PM - 02:00 PM",
-            queue: 21
+            time:
+                "12:00 PM - 02:00 PM",
+
+            queue:
+                21
         },
 
         {
-            time: "02:00 PM - 04:00 PM",
-            queue: 11
+            time:
+                "02:00 PM - 04:00 PM",
+
+            queue:
+                11
         },
 
         {
-            time: "04:00 PM - 06:00 PM",
-            queue: 6
+            time:
+                "04:00 PM - 06:00 PM",
+
+            queue:
+                6
         }
 
     ];
 
 
-    // Choose slot with lowest queue
-    const bestSlot =
-        slots.reduce(
-            (best, current) =>
-                current.queue <
-                best.queue
-                    ? current
-                    : best
+    /*
+        Small deterministic adjustment so
+        different centres can show different
+        queue estimates.
+    */
+
+    const centreOffset = {
+
+        "Centre A":
+            0,
+
+        "Centre B":
+            4,
+
+        "Centre C":
+            7
+
+    };
+
+
+    const offset =
+        centreOffset[data.centre] || 0;
+
+
+    const slots =
+        allSlots.map(
+            slot => ({
+
+                time:
+                    slot.time,
+
+                queue:
+                    slot.queue +
+                    offset
+
+            })
         );
 
 
-    return {
+    /*
+        Heavier crop loads receive a slightly
+        higher queue estimate in this demo.
+    */
 
-        date: data.date,
+    if (data.weight > 1000) {
 
-        time: bestSlot.time,
+        slots.forEach(
+            slot => {
 
-        centre: data.centre,
+                slot.queue += 3;
 
-        queue: bestSlot.queue
+            }
+        );
 
-    };
+    }
+
+
+    /*
+        Lowest queue first.
+    */
+
+    slots.sort(
+        (a, b) =>
+            a.queue -
+            b.queue
+    );
+
+
+    /*
+        Return all available options so
+        "Choose Another Slot" can work.
+    */
+
+    return slots.map(
+        slot => ({
+
+            date:
+                data.date,
+
+            time:
+                slot.time,
+
+            centre:
+                data.centre,
+
+            queue:
+                slot.queue
+
+        })
+    );
 
 }
 
 
 // ==========================================================
-// DISPLAY RECOMMENDED SLOT
+// DISPLAY SLOT
 // ==========================================================
 
 function displaySlotRecommendation(
     recommendation
 ) {
+
+    if (!recommendation) return;
+
 
     setText(
         "recommendedDate",
@@ -1593,40 +2026,87 @@ function displaySlotRecommendation(
     );
 
 
-    const slotModal =
-        document.getElementById(
+    document
+        .getElementById(
             "slotModal"
-        );
-
-    if (slotModal) {
-
-        slotModal.classList.remove(
+        )
+        ?.classList.remove(
             "hidden"
         );
 
+}
+
+
+// ==========================================================
+// CHOOSE ANOTHER SLOT
+// ==========================================================
+
+function chooseAnotherSlot() {
+
+    if (
+        !recommendedSlots.length
+    ) {
+
+        closeSlotModal();
+
+        openProcurementModal();
+
+        return;
+
     }
+
+
+    currentSlotIndex++;
+
+
+    if (
+        currentSlotIndex >=
+        recommendedSlots.length
+    ) {
+
+        currentSlotIndex = 0;
+
+    }
+
+
+    displaySlotRecommendation(
+        recommendedSlots[
+            currentSlotIndex
+        ]
+    );
 
 }
 
+
+// ==========================================================
+// CLOSE SLOT
+// ==========================================================
 
 function closeSlotModal() {
 
-    document.getElementById(
-        "slotModal"
-    )?.classList.add("hidden");
+    document
+        .getElementById(
+            "slotModal"
+        )
+        ?.classList.add("hidden");
 
 }
 
 
-function formatDate(dateString) {
+// ==========================================================
+// FORMAT DATE
+// ==========================================================
+
+function formatDate(
+    dateString
+) {
 
     if (!dateString) return "-";
 
 
     const date =
         new Date(
-            dateString +
-            "T00:00:00"
+            `${dateString}T00:00:00`
         );
 
 
@@ -1635,9 +2115,16 @@ function formatDate(dateString) {
             ? "hi-IN"
             : "en-IN",
         {
-            day: "numeric",
-            month: "short",
-            year: "numeric"
+
+            day:
+                "numeric",
+
+            month:
+                "short",
+
+            year:
+                "numeric"
+
         }
     );
 
@@ -1652,7 +2139,8 @@ function confirmSlot() {
 
     if (
         !currentUser ||
-        !procurementData
+        !procurementData ||
+        !recommendedSlots.length
     ) {
 
         return;
@@ -1660,10 +2148,10 @@ function confirmSlot() {
     }
 
 
-    const recommendation =
-        generateSlotRecommendation(
-            procurementData
-        );
+    const selectedSlot =
+        recommendedSlots[
+            currentSlotIndex
+        ];
 
 
     const finalData = {
@@ -1671,10 +2159,10 @@ function confirmSlot() {
         ...procurementData,
 
         recommendedTime:
-            recommendation.time,
+            selectedSlot.time,
 
         queue:
-            recommendation.queue,
+            selectedSlot.queue,
 
         confirmedAt:
             new Date().toISOString(),
@@ -1685,17 +2173,21 @@ function confirmSlot() {
     };
 
 
-    // Store inside current user
     currentUser.procurement =
         finalData;
 
 
-    // Update users array
+    /*
+        Update user in users array.
+    */
+
     users =
-        users.map(user =>
-            user.id === currentUser.id
-                ? currentUser
-                : user
+        users.map(
+            user =>
+                user.id ===
+                currentUser.id
+                    ? currentUser
+                    : user
         );
 
 
@@ -1711,28 +2203,38 @@ function confirmSlot() {
     );
 
 
+    procurementData =
+        finalData;
+
+
     closeSlotModal();
 
 
-    // Show procurement status
     showProcurementStatus(
         finalData
     );
 
 
-    // Scroll to status section
-    setTimeout(() => {
+    setTimeout(
+        () => {
 
-        document
-            .getElementById(
-                "procurementStatusSection"
-            )
-            ?.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
+            document
+                .getElementById(
+                    "procurementStatusSection"
+                )
+                ?.scrollIntoView({
 
-    }, 300);
+                    behavior:
+                        "smooth",
+
+                    block:
+                        "center"
+
+                });
+
+        },
+        300
+    );
 
 }
 
@@ -1741,12 +2243,15 @@ function confirmSlot() {
 // PROCUREMENT STATUS
 // ==========================================================
 
-function showProcurementStatus(data) {
+function showProcurementStatus(
+    data
+) {
 
     const section =
         document.getElementById(
             "procurementStatusSection"
         );
+
 
     if (!section) return;
 
@@ -1764,21 +2269,31 @@ function showProcurementStatus(data) {
 
     setText(
         "statusBadge",
+        data.status ||
         "In Queue"
     );
 
 
-    updateStatusTimeline();
+    updateStatusTimeline(
+        data
+    );
 
 }
 
 
-function updateStatusTimeline() {
+// ==========================================================
+// STATUS TIMELINE
+// ==========================================================
+
+function updateStatusTimeline(
+    data
+) {
 
     const section =
         document.getElementById(
             "procurementStatusSection"
         );
+
 
     if (!section) return;
 
@@ -1789,7 +2304,43 @@ function updateStatusTimeline() {
         );
 
 
-    // Registration
+    const lines =
+        section.querySelectorAll(
+            ".timeline-line"
+        );
+
+
+    /*
+        RESET
+    */
+
+    steps.forEach(
+        step => {
+
+            step.classList.remove(
+                "completed",
+                "active"
+            );
+
+        }
+    );
+
+
+    lines.forEach(
+        line => {
+
+            line.classList.remove(
+                "completed-line"
+            );
+
+        }
+    );
+
+
+    /*
+        Registration
+    */
+
     if (steps[0]) {
 
         steps[0].classList.add(
@@ -1799,7 +2350,10 @@ function updateStatusTimeline() {
     }
 
 
-    // Slot confirmed
+    /*
+        Slot Confirmed
+    */
+
     if (steps[1]) {
 
         steps[1].classList.add(
@@ -1809,11 +2363,55 @@ function updateStatusTimeline() {
     }
 
 
-    // In queue
+    if (lines[0]) {
+
+        lines[0].classList.add(
+            "completed-line"
+        );
+
+    }
+
+
+    /*
+        In Queue
+    */
+
     if (steps[2]) {
 
         steps[2].classList.add(
             "active"
+        );
+
+    }
+
+
+    if (
+        data &&
+        data.status ===
+        "Completed"
+    ) {
+
+        steps[2]?.classList.add(
+            "completed"
+        );
+
+        steps[2]?.classList.remove(
+            "active"
+        );
+
+        steps[3]?.classList.add(
+            "completed"
+        );
+
+        steps[4]?.classList.add(
+            "completed"
+        );
+
+        lines.forEach(
+            line =>
+                line.classList.add(
+                    "completed-line"
+                )
         );
 
     }
@@ -1825,25 +2423,24 @@ function updateStatusTimeline() {
 // LOAD PREVIOUS PROCUREMENT
 // ==========================================================
 
-function loadProcurementStatus(user) {
+function loadProcurementStatus(
+    user
+) {
+
+    const section =
+        document.getElementById(
+            "procurementStatusSection"
+        );
+
 
     if (
         !user ||
         !user.procurement
     ) {
 
-        const section =
-            document.getElementById(
-                "procurementStatusSection"
-            );
-
-        if (section) {
-
-            section.classList.add(
-                "hidden"
-            );
-
-        }
+        section?.classList.add(
+            "hidden"
+        );
 
         return;
 
@@ -1870,35 +2467,44 @@ function setupInputValidation() {
     const mobileInputs = [
 
         "loginMobile",
+
         "regMobile"
 
     ];
 
 
-    mobileInputs.forEach(id => {
+    mobileInputs.forEach(
+        id => {
 
-        const input =
-            document.getElementById(id);
+            const input =
+                document.getElementById(
+                    id
+                );
 
-        if (!input) return;
+
+            if (!input) return;
 
 
-        input.addEventListener(
-            "input",
-            () => {
+            input.addEventListener(
+                "input",
+                () => {
 
-                input.value =
-                    input.value
-                        .replace(
-                            /[^0-9]/g,
-                            ""
-                        )
-                        .slice(0, 10);
+                    input.value =
+                        input.value
+                            .replace(
+                                /[^0-9]/g,
+                                ""
+                            )
+                            .slice(
+                                0,
+                                10
+                            );
 
-            }
-        );
+                }
+            );
 
-    });
+        }
+    );
 
 
     const aadhaar =
@@ -1919,7 +2525,10 @@ function setupInputValidation() {
                             /[^0-9]/g,
                             ""
                         )
-                        .slice(0, 12);
+                        .slice(
+                            0,
+                            12
+                        );
 
             }
         );
@@ -1930,7 +2539,7 @@ function setupInputValidation() {
 
 
 // ==========================================================
-// EXISTING LOGIN CHECK
+// EXISTING LOGIN
 // ==========================================================
 
 function checkExistingLogin() {
@@ -1946,28 +2555,35 @@ function checkExistingLogin() {
 
     try {
 
-        const user =
+        const savedUser =
             JSON.parse(saved);
 
 
         const actualUser =
             users.find(
-                u => u.id === user.id
+                user =>
+                    user.id ===
+                    savedUser.id
             );
 
 
         if (
             actualUser &&
-            actualUser.role === "farmer"
+            actualUser.role ===
+            "farmer"
         ) {
 
             currentUser =
                 actualUser;
 
-            // Don't instantly hide homepage on refresh
-            // unless a real logged-in session exists.
             openDashboard(
                 actualUser
+            );
+
+        } else {
+
+            localStorage.removeItem(
+                "samayKrishiLoggedInUser"
             );
 
         }
@@ -1975,8 +2591,12 @@ function checkExistingLogin() {
     } catch (error) {
 
         console.error(
-            "Login session error:",
+            "Session error:",
             error
+        );
+
+        localStorage.removeItem(
+            "samayKrishiLoggedInUser"
         );
 
     }
@@ -1985,7 +2605,7 @@ function checkExistingLogin() {
 
 
 // ==========================================================
-// DASHBOARD TEXT UPDATE
+// DASHBOARD TEXT
 // ==========================================================
 
 function updateDashboardTexts() {
@@ -1995,6 +2615,7 @@ function updateDashboardTexts() {
             "farmerDashboard"
         );
 
+
     if (!dashboard) return;
 
 
@@ -2002,32 +2623,74 @@ function updateDashboardTexts() {
         .querySelectorAll(
             "[data-en][data-hi]"
         )
-        .forEach(element => {
+        .forEach(
+            element => {
 
-            const value =
-                element.getAttribute(
-                    `data-${currentLanguage}`
-                );
+                const value =
+                    element.getAttribute(
+                        `data-${currentLanguage}`
+                    );
 
-            if (value) {
 
-                element.textContent =
-                    value;
+                if (value !== null) {
+
+                    element.textContent =
+                        value;
+
+                }
 
             }
-
-        });
+        );
 
 }
 
 
 // ==========================================================
-// DEBUG INFO
+// LOCAL DATE
+// ==========================================================
+
+function getLocalDate() {
+
+    const now =
+        new Date();
+
+
+    const year =
+        now.getFullYear();
+
+
+    const month =
+        String(
+            now.getMonth() + 1
+        ).padStart(
+            2,
+            "0"
+        );
+
+
+    const day =
+        String(
+            now.getDate()
+        ).padStart(
+            2,
+            "0"
+        );
+
+
+    return (
+        `${year}-${month}-${day}`
+    );
+
+}
+
+
+// ==========================================================
+// FINAL DEBUG
 // ==========================================================
 
 console.log(
-    "%c Samay Krishi Portal Loaded Successfully ",
-    "background:#2ecc71;color:white;padding:6px;font-weight:bold;"
+    "%c Samay Krishi Portal Ready ",
+    "background:#2ecc71;color:white;padding:7px;font-weight:bold;border-radius:4px;"
 );
 
 console.log(
