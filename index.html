@@ -1,103 +1,974 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Samay Krishi</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Samay Krishi</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div id="toast"></div>
 
-<header class="topbar">
-  <div class="brand"><div class="logo">🌾</div><div><b>Samay Krishi</b><small data-i18n="tagline">Hassle-free procurement for farmers.</small></div></div>
-  <div class="top-actions">
-    <button id="langBtn" class="lang">हिंदी</button>
-    <button class="outline" id="loginTop" data-i18n="login">Login</button>
-  </div>
-</header>
+<!-- ================= LANDING PAGE ================= -->
 
-<main>
-<section class="hero">
-  <div class="hero-copy">
-    <span class="pill">🌱 <span data-i18n="smartPortal">Smart Procurement Portal</span></span>
-    <h1 data-i18n="heroTitle">Sell your produce without the long wait.</h1>
-    <p data-i18n="heroText">Book a procurement slot, track your queue, and know your payment status — all in one simple place.</p>
-    <div class="hero-buttons">
-      <button class="primary" id="registerBtn" data-i18n="register">Register Now</button>
-      <button class="secondary" id="heroLogin" data-i18n="login">Login</button>
-    </div>
-    <div class="trust"><span>✓ <span data-i18n="simple">Simple to use</span></span><span>✓ <span data-i18n="live">Live queue updates</span></span><span>✓ <span data-i18n="secure">Secure</span></span></div>
-  </div>
-  <div class="hero-art">
-    <div class="sun"></div><div class="cloud c1"></div><div class="cloud c2"></div>
-    <div class="field f1"></div><div class="field f2"></div>
-    <div class="farmer">🧑‍🌾</div><div class="crop">🌾🌾🌾</div>
-    <div class="float-card card1">📅 <b data-i18n="slot">Slot Booked</b><small>10:30 AM</small></div>
-    <div class="float-card card2">⏱️ <b data-i18n="queue">Queue</b><small>#08</small></div>
-  </div>
-</section>
+<div id="landingPage">
 
-<section class="features">
-  <div class="section-title"><span class="pill">✨ <span data-i18n="features">Features</span></span><h2 data-i18n="everything">Everything a farmer needs</h2></div>
-  <div class="feature-grid">
-    <div class="feature"><span>📅</span><h3 data-i18n="booking">Easy Slot Booking</h3><p data-i18n="bookingText">Choose a convenient date and time at your procurement centre.</p></div>
-    <div class="feature"><span>👥</span><h3 data-i18n="queueTitle">Live Queue</h3><p data-i18n="queueText">See your queue position and avoid unnecessary waiting.</p></div>
-    <div class="feature"><span>🔔</span><h3 data-i18n="alerts">Smart Alerts</h3><p data-i18n="alertsText">Get timely notifications about slots and procurement.</p></div>
-    <div class="feature"><span>💳</span><h3 data-i18n="payment">Payment Tracking</h3><p data-i18n="paymentText">Track procurement and payment status from one dashboard.</p></div>
-  </div>
-</section>
-</main>
+    <header class="navbar">
 
-<!-- LOGIN MODAL -->
+        <div class="logo">
+            <span class="logo-icon">🌾</span>
+            Samay <b>Krishi</b>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#how">How It Works</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <button class="language-btn" onclick="toggleLanguage()">
+                हिन्दी
+            </button>
+
+            <button class="btn outline" onclick="openLogin()">
+                Login
+            </button>
+
+            <button class="btn primary" onclick="openRegister()">
+                Register
+            </button>
+        </div>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <div class="badge">
+                🌱 Smart Procurement Platform
+            </div>
+
+            <h1>
+                Hassle-free procurement
+                <span>for farmers.</span>
+            </h1>
+
+            <p>
+                Book your procurement slot, track your queue,
+                receive notifications and monitor your payment
+                — all from one simple platform.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="btn primary" onclick="openRegister()">
+                    👨‍🌾 Register as Farmer
+                </button>
+
+                <button class="btn outline" onclick="openLogin()">
+                    Login to Portal
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+            <div class="farm-circle">
+
+                <div class="farmer">
+                    👨‍🌾
+                </div>
+
+                <div class="floating-card card1">
+                    📅 Slot Booked
+                </div>
+
+                <div class="floating-card card2">
+                    🎟️ Token A-124
+                </div>
+
+                <div class="floating-card card3">
+                    💰 Payment Tracked
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="section" id="features">
+
+        <div class="section-heading">
+
+            <h2>Everything a farmer needs</h2>
+
+            <p>
+                Simple technology designed to reduce
+                waiting and uncertainty.
+            </p>
+
+        </div>
+
+
+        <div class="features-grid">
+
+            <div class="feature-card">
+                <div class="feature-icon">📅</div>
+                <h3>Slot Booking</h3>
+                <p>
+                    Select procurement centre,
+                    date and convenient time slot.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="feature-icon">🎟️</div>
+                <h3>Live Queue</h3>
+                <p>
+                    See your token number and
+                    estimated waiting time.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="feature-icon">🔔</div>
+                <h3>Notifications</h3>
+                <p>
+                    Get alerts when your turn
+                    is approaching.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Payment Tracking</h3>
+                <p>
+                    Track procurement and
+                    payment status.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+
+    <section class="section" id="how">
+
+        <div class="section-heading">
+
+            <h2>How Samay Krishi Works</h2>
+
+            <p>Four simple steps.</p>
+
+        </div>
+
+
+        <div class="steps">
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Register</h3>
+                <p>Create your account.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Book Slot</h3>
+                <p>Select centre and timing.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Track Queue</h3>
+                <p>Monitor your token.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Get Paid</h3>
+                <p>Track your payment.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <strong>🌾 Samay Krishi</strong>
+
+        <span>
+            Hassle-free procurement for farmers.
+        </span>
+
+    </footer>
+
+</div>
+
+
+<!-- ================= LOGIN MODAL ================= -->
+
 <div class="modal" id="loginModal">
- <div class="modal-box">
-  <button class="close">×</button>
-  <div class="modal-icon">🔐</div><h2 data-i18n="welcome">Welcome Back</h2><p data-i18n="loginSub">Login to your Samay Krishi account</p>
-  <label data-i18n="role">Login as</label>
-  <select id="loginRole"><option value="farmer">👨‍🌾 Farmer</option><option value="admin">🛠️ Procurement / Admin</option><option value="centre">🏢 Procurement Centre</option></select>
-  <label data-i18n="mobile">Mobile Number</label>
-  <input id="loginMobile" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number">
-  <label data-i18n="password">Password</label>
-  <input id="loginPass" type="password" placeholder="Password">
-  <button class="primary full" id="doLogin" data-i18n="continue">Continue</button>
-  <p class="switch"><span data-i18n="noAccount">Don't have an account?</span> <button id="toRegister" data-i18n="register">Register</button></p>
- </div>
+
+    <div class="modal-box">
+
+        <button class="close" onclick="closeModal('loginModal')">
+            ×
+        </button>
+
+        <h2>Welcome Back 👋</h2>
+
+        <p class="modal-subtitle">
+            Login to your Samay Krishi account
+        </p>
+
+
+        <div class="roles">
+
+            <div class="role selected"
+                 onclick="selectRole(this,'Farmer')">
+
+                <span>👨‍🌾</span>
+                <strong>Farmer</strong>
+
+            </div>
+
+            <div class="role"
+                 onclick="selectRole(this,'Admin')">
+
+                <span>🧑‍💼</span>
+                <strong>Admin</strong>
+
+            </div>
+
+            <div class="role"
+                 onclick="selectRole(this,'Centre')">
+
+                <span>🏢</span>
+                <strong>Centre</strong>
+
+            </div>
+
+        </div>
+
+
+        <form onsubmit="handleLogin(event)">
+
+            <label>Mobile Number</label>
+
+            <input
+                id="loginMobile"
+                type="tel"
+                inputmode="numeric"
+                maxlength="10"
+                placeholder="10-digit mobile number"
+                required
+            >
+
+            <small id="loginMobileError" class="error">
+                Enter exactly 10 digits.
+            </small>
+
+
+            <label>Password</label>
+
+            <input
+                id="loginPassword"
+                type="password"
+                placeholder="Enter password"
+                required
+            >
+
+
+            <div class="form-bottom">
+
+                <span onclick="switchToRegister()">
+                    New farmer? Register
+                </span>
+
+                <button class="btn primary">
+                    Login →
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
 </div>
 
-<!-- REGISTER MODAL -->
+
+<!-- ================= REGISTER MODAL ================= -->
+
 <div class="modal" id="registerModal">
- <div class="modal-box wide">
-  <button class="close">×</button>
-  <div class="modal-icon">🌾</div><h2 data-i18n="create">Create your account</h2><p data-i18n="registerSub">Register once and manage procurement easily.</p>
-  <div class="role-tabs"><button class="active" data-role="farmer">👨‍🌾 Farmer</button><button data-role="admin">🛠️ Admin</button><button data-role="centre">🏢 Centre</button></div>
-  <div class="form-grid">
-   <div><label data-i18n="name">Full Name</label><input id="regName" placeholder="Enter name"></div>
-   <div><label data-i18n="mobile">Mobile Number</label><input id="regMobile" inputmode="numeric" maxlength="10" placeholder="10-digit mobile"></div>
-   <div><label data-i18n="aadhaar">Aadhaar / Farmer ID</label><input id="regId" inputmode="numeric" maxlength="12" placeholder="12-digit Aadhaar / ID"></div>
-   <div><label data-i18n="village">Village</label><input id="regVillage" placeholder="Village name"></div>
-   <div><label data-i18n="password">Password</label><input id="regPass" type="password" placeholder="Create password"></div>
-  </div>
-  <button class="primary full" id="doRegister" data-i18n="createAccount">Create Account</button>
- </div>
+
+    <div class="modal-box">
+
+        <button class="close" onclick="closeModal('registerModal')">
+            ×
+        </button>
+
+        <h2>Create Farmer Account 🌾</h2>
+
+        <p class="modal-subtitle">
+            Register once and access procurement services.
+        </p>
+
+
+        <form onsubmit="handleRegister(event)">
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Full Name *</label>
+
+                    <input
+                        id="regName"
+                        type="text"
+                        placeholder="Full name"
+                        required
+                    >
+                </div>
+
+
+                <div>
+                    <label>Mobile Number *</label>
+
+                    <input
+                        id="regMobile"
+                        type="tel"
+                        inputmode="numeric"
+                        maxlength="10"
+                        placeholder="10-digit mobile number"
+                        required
+                    >
+
+                    <small id="mobileError" class="error">
+                        Mobile number must contain exactly 10 digits.
+                    </small>
+                </div>
+
+
+                <div>
+                    <label>Aadhaar Number / Farmer ID *</label>
+
+                    <input
+                        id="regAadhaar"
+                        type="text"
+                        inputmode="numeric"
+                        maxlength="12"
+                        placeholder="12-digit number"
+                        required
+                    >
+
+                    <small id="aadhaarError" class="error">
+                        Enter exactly 12 digits.
+                    </small>
+                </div>
+
+
+                <div>
+                    <label>Village *</label>
+
+                    <input
+                        id="regVillage"
+                        type="text"
+                        placeholder="Village name"
+                        required
+                    >
+                </div>
+
+
+                <div>
+                    <label>Password *</label>
+
+                    <input
+                        id="regPassword"
+                        type="password"
+                        minlength="6"
+                        placeholder="Minimum 6 characters"
+                        required
+                    >
+                </div>
+
+
+                <div>
+                    <label>Confirm Password *</label>
+
+                    <input
+                        id="regConfirmPassword"
+                        type="password"
+                        placeholder="Confirm password"
+                        required
+                    >
+
+                    <small id="passwordError" class="error">
+                        Passwords do not match.
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="form-bottom">
+
+                <span onclick="switchToLogin()">
+                    Already registered? Login
+                </span>
+
+                <button class="btn primary">
+                    Create Account
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
 </div>
 
-<!-- DASHBOARD -->
-<div class="modal" id="dashboardModal">
- <div class="dashboard">
-  <button class="close">×</button>
-  <div class="dash-head"><div><span class="pill">🌱 Samay Krishi</span><h2 id="dashGreeting">Namaste!</h2><p data-i18n="dashboardSub">Your procurement journey at a glance.</p></div><div class="avatar">👨‍🌾</div></div>
-  <div class="stats"><div><span>📅</span><b id="statSlot">Not booked</b><small data-i18n="yourSlot">Your slot</small></div><div><span>👥</span><b>#08</b><small data-i18n="queuePos">Queue position</small></div><div><span>💰</span><b>₹0</b><small data-i18n="paymentStatus">Payment status</small></div></div>
-  <div class="dash-grid">
-   <button class="dash-card" onclick="demoAction('slot')">📅<b data-i18n="bookSlot">Book Procurement Slot</b><small data-i18n="bookSlotSub">Select centre, date and time</small></button>
-   <button class="dash-card" onclick="demoAction('queue')">👥<b data-i18n="viewQueue">View Live Queue</b><small data-i18n="viewQueueSub">Check your current position</small></button>
-   <button class="dash-card" onclick="demoAction('status')">📦<b data-i18n="procStatus">Procurement Status</b><small data-i18n="procStatusSub">Track your produce</small></button>
-   <button class="dash-card" onclick="demoAction('payment')">💳<b data-i18n="paymentTrack">Payment Tracking</b><small data-i18n="paymentTrackSub">See payment updates</small></button>
-  </div>
-  <div class="notice">🔔 <span data-i18n="demoNotice">Demo mode: live government procurement data can be connected through an official API later.</span></div>
- </div>
+
+<!-- ================= DASHBOARD ================= -->
+
+<div id="dashboard" class="dashboard">
+
+    <header class="dashboard-nav">
+
+        <div class="logo">
+            🌾 Samay <b>Krishi</b>
+        </div>
+
+        <div class="user">
+
+            <span id="avatar">👨‍🌾</span>
+
+            <strong id="dashboardUser">
+                Farmer
+            </strong>
+
+            <button class="btn outline"
+                    onclick="logout()">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <main class="dashboard-content">
+
+        <h2 id="welcome">
+            Welcome to Samay Krishi 👋
+        </h2>
+
+        <p class="dashboard-subtitle">
+            Manage your procurement journey from one place.
+        </p>
+
+
+        <!-- FARMER -->
+
+        <div id="farmerDashboard">
+
+            <div class="stats">
+
+                <div class="stat">
+                    <small>My Slot</small>
+                    <strong id="slotStat">
+                        Not Booked
+                    </strong>
+                </div>
+
+                <div class="stat">
+                    <small>My Token</small>
+                    <strong id="tokenStat">
+                        —
+                    </strong>
+                </div>
+
+                <div class="stat">
+                    <small>Procurement</small>
+                    <strong>In Progress</strong>
+                </div>
+
+                <div class="stat">
+                    <small>Payment</small>
+                    <strong>Processing</strong>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-grid">
+
+                <div class="panel">
+
+                    <h3>Quick Actions</h3>
+
+                    <div class="quick-actions">
+
+                        <div onclick="openBooking()">
+                            📅
+                            <strong>Book Slot</strong>
+                            <small>Select timing</small>
+                        </div>
+
+                        <div onclick="showQueue()">
+                            🎟️
+                            <strong>Live Queue</strong>
+                            <small>Track token</small>
+                        </div>
+
+                        <div onclick="showProcurement()">
+                            📦
+                            <strong>Procurement</strong>
+                            <small>Track produce</small>
+                        </div>
+
+                        <div onclick="showPayment()">
+                            💰
+                            <strong>Payment</strong>
+                            <small>Track payment</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <h3>🔔 Notifications</h3>
+
+                    <div class="notification">
+                        <strong>Slot Reminder</strong>
+                        <p>Your booking updates will appear here.</p>
+                    </div>
+
+                    <div class="notification">
+                        <strong>Payment Update</strong>
+                        <p>Payment notifications will appear here.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ADMIN -->
+
+        <div id="adminDashboard" class="hidden">
+
+            <div class="stats">
+
+                <div class="stat">
+                    <small>Today's Farmers</small>
+                    <strong>128</strong>
+                </div>
+
+                <div class="stat">
+                    <small>Waiting</small>
+                    <strong>36</strong>
+                </div>
+
+                <div class="stat">
+                    <small>Procured Today</small>
+                    <strong>84</strong>
+                </div>
+
+                <div class="stat">
+                    <small>Pending Payments</small>
+                    <strong>17</strong>
+                </div>
+
+            </div>
+
+
+            <div class="panel large-panel">
+
+                <h3>📊 Procurement Overview</h3>
+
+                <p>
+                    Monitor farmer bookings, queue movement,
+                    procurement completion and payment processing.
+                </p>
+
+                <button class="btn primary"
+                        onclick="showToast('Queue management opened')">
+                    Manage Live Queue
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- CENTRE -->
+
+        <div id="centreDashboard" class="hidden">
+
+            <div class="stats">
+
+                <div class="stat">
+                    <small>Current Token</small>
+                    <strong>A-118</strong>
+                </div>
+
+                <div class="stat">
+                    <small>Farmers Waiting</small>
+                    <strong>24</strong>
+                </div>
+
+                <div class="stat">
+                    <small>Completed</small>
+                    <strong>73</strong>
+                </div>
+
+                <div class="stat">
+                    <small>Capacity</small>
+                    <strong>82%</strong>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-grid">
+
+                <div class="panel">
+
+                    <h3>🎟️ Live Queue Control</h3>
+
+                    <div class="queue-box">
+
+                        <small>Currently Serving</small>
+
+                        <div class="big-token">
+                            A-118
+                        </div>
+
+                        <p>
+                            Next token:
+                            <strong>A-119</strong>
+                        </p>
+
+                        <button
+                            class="btn primary"
+                            onclick="showToast('Next farmer called')">
+
+                            Call Next Farmer →
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <h3>Centre Actions</h3>
+
+                    <button
+                        class="btn primary full"
+                        onclick="showToast('Farmer verification opened')">
+                        Verify Farmer
+                    </button>
+
+                    <button
+                        class="btn outline full"
+                        onclick="showToast('Procurement update opened')">
+                        Update Procurement
+                    </button>
+
+                    <button
+                        class="btn outline full"
+                        onclick="showToast('Payment update opened')">
+                        Update Payment
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
 </div>
+
+
+<!-- ================= BOOK SLOT ================= -->
+
+<div class="modal" id="bookingModal">
+
+    <div class="modal-box">
+
+        <button class="close"
+                onclick="closeModal('bookingModal')">
+            ×
+        </button>
+
+        <h2>📅 Book Procurement Slot</h2>
+
+        <p class="modal-subtitle">
+            Choose your centre, produce, date and time.
+        </p>
+
+
+        <label>Procurement Centre</label>
+
+        <select id="centreSelect">
+            <option value="">Select Centre</option>
+            <option>Varanasi Procurement Centre</option>
+            <option>Gorakhpur Procurement Centre</option>
+            <option>Prayagraj Procurement Centre</option>
+            <option>Lucknow Procurement Centre</option>
+        </select>
+
+
+        <label>Produce</label>
+
+        <select id="produceSelect">
+            <option value="">Select Produce</option>
+            <option>Wheat</option>
+            <option>Rice</option>
+            <option>Paddy</option>
+            <option>Maize</option>
+        </select>
+
+
+        <label>Date</label>
+
+        <input type="date" id="bookingDate">
+
+
+        <label>Time Slot</label>
+
+        <select id="timeSlot">
+            <option value="">Select Time</option>
+            <option>09:00 AM - 10:00 AM</option>
+            <option>10:00 AM - 11:00 AM</option>
+            <option>11:00 AM - 12:00 PM</option>
+            <option>12:00 PM - 01:00 PM</option>
+            <option>02:00 PM - 03:00 PM</option>
+        </select>
+
+
+        <button
+            class="btn primary full"
+            onclick="bookSlot()">
+
+            Confirm Slot Booking
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= QUEUE ================= -->
+
+<div class="modal" id="queueModal">
+
+    <div class="modal-box">
+
+        <button class="close"
+                onclick="closeModal('queueModal')">
+            ×
+        </button>
+
+        <h2>🎟️ Live Queue</h2>
+
+        <div class="queue-box">
+
+            <small>Your Token</small>
+
+            <div id="queueToken" class="big-token">
+                A-124
+            </div>
+
+            <p>
+                Your slot:
+                <strong id="queueSlot">
+                    10:00 AM - 11:00 AM
+                </strong>
+            </p>
+
+
+            <div class="queue-info">
+
+                <div>
+                    <small>Currently Serving</small>
+                    <strong>A-118</strong>
+                </div>
+
+                <div>
+                    <small>Farmers Ahead</small>
+                    <strong>6</strong>
+                </div>
+
+                <div>
+                    <small>Estimated Wait</small>
+                    <strong>~30 min</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= PROCUREMENT ================= -->
+
+<div class="modal" id="procurementModal">
+
+    <div class="modal-box">
+
+        <button class="close"
+                onclick="closeModal('procurementModal')">
+            ×
+        </button>
+
+        <h2>📦 Procurement Status</h2>
+
+        <div class="timeline">
+
+            <div class="timeline-item done">
+                <span>✓</span>
+                <div>
+                    <strong>Produce Submitted</strong>
+                    <small>Completed</small>
+                </div>
+            </div>
+
+            <div class="timeline-item done">
+                <span>✓</span>
+                <div>
+                    <strong>Quality Check</strong>
+                    <small>Completed</small>
+                </div>
+            </div>
+
+            <div class="timeline-item done">
+                <span>✓</span>
+                <div>
+                    <strong>Procurement Completed</strong>
+                    <small>Completed</small>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <span>4</span>
+                <div>
+                    <strong>Payment Processing</strong>
+                    <small>In Progress</small>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <span>5</span>
+                <div>
+                    <strong>Payment Received</strong>
+                    <small>Pending</small>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= PAYMENT ================= -->
+
+<div class="modal" id="paymentModal">
+
+    <div class="modal-box">
+
+        <button class="close"
+                onclick="closeModal('paymentModal')">
+            ×
+        </button>
+
+        <h2>💰 Payment Status</h2>
+
+        <div class="payment-amount">
+
+            <small>Total Amount</small>
+
+            <h1>₹24,500</h1>
+
+        </div>
+
+
+        <div class="payment-details">
+
+            <p>
+                <strong>Status:</strong>
+                <span>● Processing</span>
+            </p>
+
+            <p>
+                <strong>Payment Mode:</strong>
+                Bank Transfer
+            </p>
+
+            <p>
+                <strong>Transaction ID:</strong>
+                TXN1234567890
+            </p>
+
+            <p>
+                <strong>Expected Credit:</strong>
+                Within 2 working days
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div id="toast" class="toast">
+    <span id="toastMessage"></span>
+</div>
+
 
 <script src="script.js"></script>
+
 </body>
 </html>
