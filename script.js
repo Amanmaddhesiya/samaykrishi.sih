@@ -1001,59 +1001,36 @@ function handleLogin(event) {
 // ==========================================================
 // REGISTRATION
 // ==========================================================
-
 function handleRegister(event) {
 
     event.preventDefault();
 
     clearAllErrors();
 
-
+    // Get values from registration form
     const name =
-        document.getElementById(
-            "regName"
-        )?.value.trim() || "";
-
-
-    const farmerName =
-        document.getElementById(
-            "regFarmerName"
-        )?.value.trim() || "";
-
+        document.getElementById("regName")?.value.trim() || "";
 
     const mobile =
-        document.getElementById(
-            "regMobile"
-        )?.value.trim() || "";
-
+        document.getElementById("regMobile")?.value.trim() || "";
 
     const aadhaar =
-        document.getElementById(
-            "regAadhaar"
-        )?.value.trim() || "";
-
+        document.getElementById("regAadhaar")?.value.trim() || "";
 
     const village =
-        document.getElementById(
-            "regVillage"
-        )?.value.trim() || "";
-
+        document.getElementById("regVillage")?.value.trim() || "";
 
     const password =
-        document.getElementById(
-            "regPassword"
-        )?.value || "";
-
+        document.getElementById("regPassword")?.value || "";
 
     const confirmPassword =
-        document.getElementById(
-            "regConfirmPassword"
-        )?.value || "";
+        document.getElementById("regConfirmPassword")?.value || "";
 
 
     let valid = true;
 
 
+    // Validate name
     if (!name) {
 
         showError(
@@ -1066,18 +1043,7 @@ function handleRegister(event) {
     }
 
 
-    if (!farmerName) {
-
-        showError(
-            "regFarmerName",
-            t("farmerNameRequired")
-        );
-
-        valid = false;
-
-    }
-
-
+    // Validate mobile
     if (!validateMobileNumber(mobile)) {
 
         showError(
@@ -1090,6 +1056,7 @@ function handleRegister(event) {
     }
 
 
+    // Check if mobile is already registered
     if (
         users.some(
             user =>
@@ -1099,7 +1066,9 @@ function handleRegister(event) {
 
         showError(
             "regMobile",
-            "Mobile number already registered."
+            currentLanguage === "hi"
+                ? "यह मोबाइल नंबर पहले से पंजीकृत है।"
+                : "Mobile number already registered."
         );
 
         valid = false;
@@ -1107,6 +1076,7 @@ function handleRegister(event) {
     }
 
 
+    // Validate Aadhaar
     if (!validateAadhaarNumber(aadhaar)) {
 
         showError(
@@ -1119,6 +1089,7 @@ function handleRegister(event) {
     }
 
 
+    // Validate village
     if (!village) {
 
         showError(
@@ -1131,6 +1102,7 @@ function handleRegister(event) {
     }
 
 
+    // Validate password
     if (!validatePassword(password)) {
 
         showError(
@@ -1143,10 +1115,8 @@ function handleRegister(event) {
     }
 
 
-    if (
-        password !==
-        confirmPassword
-    ) {
+    // Check password confirmation
+    if (password !== confirmPassword) {
 
         showError(
             "regConfirmPassword",
@@ -1158,46 +1128,43 @@ function handleRegister(event) {
     }
 
 
-    if (!valid) return;
+    // Stop if any validation failed
+    if (!valid) {
+
+        return;
+
+    }
 
 
+    // Create new user
     const newUser = {
 
-        id:
-            Date.now(),
+        id: Date.now(),
 
-        role:
-            selectedRole || "farmer",
+        role: selectedRole || "farmer",
 
-        name:
-            name,
+        name: name,
 
-        farmerName:
-            farmerName,
+        // Use Full Name as Farmer Name
+        farmerName: name,
 
-        mobile:
-            mobile,
+        mobile: mobile,
 
-        aadhaar:
-            aadhaar,
+        aadhaar: aadhaar,
 
-        village:
-            village,
+        village: village,
 
-        password:
-            password,
+        password: password,
 
-        createdAt:
-            new Date().toISOString(),
+        createdAt: new Date().toISOString(),
 
-        procurement:
-            null
+        procurement: null
 
     };
 
 
+    // Save user
     users.push(newUser);
-
 
     localStorage.setItem(
         "samayKrishiUsers",
@@ -1205,12 +1172,14 @@ function handleRegister(event) {
     );
 
 
+    // Show success popup
     showSuccessModal(
         t("registrationSuccess"),
         t("registrationComplete")
     );
 
 
+    // After registration, open Login tab
     setTimeout(
         () => {
 
@@ -1223,7 +1192,6 @@ function handleRegister(event) {
                 document.getElementById(
                     "loginMobile"
                 );
-
 
             if (loginMobile) {
 
@@ -1238,11 +1206,9 @@ function handleRegister(event) {
                     "loginPassword"
                 );
 
-
             if (loginPassword) {
 
-                loginPassword.value =
-                    "";
+                loginPassword.value = "";
 
             }
 
@@ -1251,8 +1217,6 @@ function handleRegister(event) {
     );
 
 }
-
-
 // ==========================================================
 // SUCCESS MODAL
 // ==========================================================
