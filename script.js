@@ -1,46 +1,153 @@
-// ============================================================
+// ==========================================================
 // SAMAY KRISHI - FINAL SCRIPT
-// Login → Farmer Details → Crop Details → Slot → Status
-// ============================================================
+// Login → Dashboard → Farmer Details → Procurement → Slot
+// ==========================================================
 
 const translations = {
     en: {
-        loginSuccess: "Login Successful!",
-        welcome: "Welcome to Samay Krishi",
-        invalidCredentials: "Invalid mobile number or password.",
-        fieldRequired: "This field is required.",
-        mobileError: "Please enter a valid 10-digit mobile number.",
-        aadhaarError: "Please enter a valid 12-digit Aadhaar/Farmer ID.",
-        passwordError: "Password must be at least 8 characters.",
-        passwordMismatch: "Passwords do not match.",
-        registrationSuccess: "Registration Successful!",
-        registrationComplete: "Your account has been created successfully.",
+        welcomeTitle: "Welcome to Samay Krishi",
+        welcomeText: "Direct connection between farmers and buyers. Transparent pricing. Fair trade.",
+        selectRole: "Select Your Role",
+
         farmer: "Farmer",
         admin: "Procurement Admin",
-        centre: "Procurement Centre"
+        centre: "Procurement Centre",
+
+        farmerDesc: "Sell your produce directly",
+        adminDesc: "Manage procurement activities",
+        centreDesc: "Manage collection centers",
+
+        login: "Login",
+        register: "Register",
+
+        mobile: "Mobile Number (10 digits)",
+        password: "Password",
+        fullName: "Full Name",
+        aadhaar: "Aadhaar Number (12 digits)",
+        village: "Village Name",
+        confirmPassword: "Confirm Password",
+        passwordMin: "Password (min 8 characters)",
+
+        dontHaveAccount: "Don't have an account?",
+        registerHere: "Register here",
+        haveAccount: "Already have an account?",
+        loginHere: "Login here",
+
+        continue: "Continue",
+
+        mobileError: "Please enter a valid 10-digit mobile number.",
+        aadhaarError: "Please enter a valid 12-digit Aadhaar number.",
+        passwordError: "Password must be at least 8 characters.",
+        passwordMismatch: "Passwords do not match.",
+        nameRequired: "Please enter your full name.",
+        villageRequired: "Please enter your village name.",
+        fieldRequired: "This field is required.",
+
+        loginSuccess: "Login Successful!",
+        registrationSuccess: "Registration Successful!",
+
+        welcomeMessage:
+            "Welcome to Samay Krishi. Opening your farmer dashboard...",
+
+        registrationComplete:
+            "Your account has been created. Please login with your credentials.",
+
+        invalidCredentials:
+            "Invalid mobile number, password or selected role.",
+
+        farmerDashboard: "Farmer Dashboard",
+        welcomeBack: "Welcome back,",
+        dashboardMessage:
+            "Let's make your procurement hassle-free.",
+
+        startProcurement: "Start Procurement",
+        findSlot: "Find Best Slot",
+        bestSlot: "Best Slot For You",
+        confirmSlot: "Confirm This Slot",
+        anotherSlot: "Choose Another Slot",
+
+        slotConfirmed: "Slot Confirmed",
+        registration: "Registration",
+        inQueue: "In Queue",
+        procurement: "Procurement",
+        payment: "Payment"
     },
 
     hi: {
-        loginSuccess: "लॉगिन सफल!",
-        welcome: "Samay Krishi में आपका स्वागत है",
-        invalidCredentials: "मोबाइल नंबर या पासवर्ड गलत है।",
-        fieldRequired: "यह जानकारी आवश्यक है।",
-        mobileError: "कृपया सही 10 अंकों का मोबाइल नंबर दर्ज करें।",
-        aadhaarError: "कृपया सही 12 अंकों का आधार/किसान ID दर्ज करें।",
-        passwordError: "पासवर्ड कम से कम 8 अक्षरों का होना चाहिए।",
-        passwordMismatch: "पासवर्ड मेल नहीं खाते।",
-        registrationSuccess: "पंजीकरण सफल!",
-        registrationComplete: "आपका खाता सफलतापूर्वक बन गया है।",
+        welcomeTitle: "Samay Krishi में आपका स्वागत है",
+        welcomeText:
+            "किसानों और खरीदारों के बीच सीधा संबंध। पारदर्शी मूल्य। न्यायसंगत व्यापार।",
+        selectRole: "अपनी भूमिका चुनें",
+
         farmer: "किसान",
         admin: "खरीद प्रशासक",
-        centre: "खरीद केंद्र"
+        centre: "खरीद केंद्र",
+
+        farmerDesc: "अपनी उपज सीधे बेचें",
+        adminDesc: "खरीद गतिविधियों का प्रबंधन करें",
+        centreDesc: "संग्रहण केंद्रों का प्रबंधन करें",
+
+        login: "लॉगिन",
+        register: "पंजीकरण",
+
+        mobile: "मोबाइल नंबर (10 अंक)",
+        password: "पासवर्ड",
+        fullName: "पूरा नाम",
+        aadhaar: "आधार नंबर (12 अंक)",
+        village: "गांव का नाम",
+        confirmPassword: "पासवर्ड की पुष्टि करें",
+        passwordMin: "पासवर्ड (कम से कम 8 वर्ण)",
+
+        dontHaveAccount: "खाता नहीं है?",
+        registerHere: "यहां पंजीकरण करें",
+        haveAccount: "पहले से खाता है?",
+        loginHere: "यहां लॉगिन करें",
+
+        continue: "जारी रखें",
+
+        mobileError: "कृपया सही 10-अंकीय मोबाइल नंबर दर्ज करें।",
+        aadhaarError: "कृपया सही 12-अंकीय आधार नंबर दर्ज करें।",
+        passwordError: "पासवर्ड कम से कम 8 वर्ण का होना चाहिए।",
+        passwordMismatch: "पासवर्ड मेल नहीं खाते।",
+        nameRequired: "कृपया अपना पूरा नाम दर्ज करें।",
+        villageRequired: "कृपया अपने गांव का नाम दर्ज करें।",
+        fieldRequired: "यह क्षेत्र आवश्यक है।",
+
+        loginSuccess: "लॉगिन सफल!",
+        registrationSuccess: "पंजीकरण सफल!",
+
+        welcomeMessage:
+            "Samay Krishi में आपका स्वागत है। किसान डैशबोर्ड खोला जा रहा है...",
+
+        registrationComplete:
+            "आपका खाता बन गया है। कृपया अपने क्रेडेंशियल्स से लॉगिन करें।",
+
+        invalidCredentials:
+            "मोबाइल नंबर, पासवर्ड या चुनी गई भूमिका गलत है।",
+
+        farmerDashboard: "किसान डैशबोर्ड",
+        welcomeBack: "वापसी पर स्वागत है,",
+        dashboardMessage:
+            "आइए आपकी खरीद प्रक्रिया को आसान बनाएं।",
+
+        startProcurement: "खरीद शुरू करें",
+        findSlot: "सबसे अच्छा स्लॉट खोजें",
+        bestSlot: "आपके लिए सबसे अच्छा स्लॉट",
+        confirmSlot: "इस स्लॉट की पुष्टि करें",
+        anotherSlot: "दूसरा स्लॉट चुनें",
+
+        slotConfirmed: "स्लॉट की पुष्टि",
+        registration: "पंजीकरण",
+        inQueue: "कतार में",
+        procurement: "खरीद",
+        payment: "भुगतान"
     }
 };
 
 
-// ============================================================
-// GLOBAL STATE
-// ============================================================
+// ==========================================================
+// GLOBAL VARIABLES
+// ==========================================================
 
 let currentLanguage =
     localStorage.getItem("samayKrishiLanguage") || "en";
@@ -50,26 +157,14 @@ let selectedRole = null;
 let users =
     JSON.parse(localStorage.getItem("samayKrishiUsers")) || [];
 
-let currentUser =
-    JSON.parse(localStorage.getItem("samayKrishiLoggedInUser")) || null;
+let currentUser = null;
+
+let procurementData = null;
 
 
-// ============================================================
-// TRANSLATION
-// ============================================================
-
-function t(key) {
-    return (
-        translations[currentLanguage]?.[key] ||
-        translations.en[key] ||
-        key
-    );
-}
-
-
-// ============================================================
-// PAGE INITIALIZATION
-// ============================================================
+// ==========================================================
+// INITIALIZATION
+// ==========================================================
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -79,33 +174,72 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setupAuthentication();
 
+    setupDashboard();
+
+    setupProcurement();
+
     setupInputValidation();
 
-    loadStoredLanguage();
+    updateLanguageUI();
 
-    console.log("🌾 Samay Krishi Portal Ready");
+    checkExistingLogin();
+
 });
 
 
-// ============================================================
-// LANGUAGE
-// ============================================================
+// ==========================================================
+// TRANSLATION HELPER
+// ==========================================================
+
+function t(key) {
+
+    return (
+        translations[currentLanguage][key] ||
+        translations.en[key] ||
+        key
+    );
+
+}
+
+
+// ==========================================================
+// LANGUAGE SYSTEM
+// ==========================================================
 
 function setupLanguage() {
 
-    document.querySelectorAll(".lang-btn").forEach(button => {
+    document.querySelectorAll(".lang-btn").forEach(btn => {
 
-        button.addEventListener("click", () => {
+        btn.addEventListener("click", () => {
 
-            const lang = button.dataset.lang;
+            changeLanguage(btn.dataset.lang);
 
-            changeLanguage(lang);
         });
+
     });
+
+
+    const dashboardLang =
+        document.getElementById("dashboardLangBtn");
+
+    if (dashboardLang) {
+
+        dashboardLang.addEventListener("click", () => {
+
+            changeLanguage(
+                currentLanguage === "en" ? "hi" : "en"
+            );
+
+        });
+
+    }
+
 }
 
 
 function changeLanguage(lang) {
+
+    if (!translations[lang]) return;
 
     currentLanguage = lang;
 
@@ -114,39 +248,54 @@ function changeLanguage(lang) {
         lang
     );
 
-    document.querySelectorAll(".lang-btn").forEach(btn => {
+    updateLanguageUI();
 
-        btn.classList.toggle(
-            "active",
-            btn.dataset.lang === lang
-        );
-    });
+}
+
+
+function updateLanguageUI() {
+
+    document.documentElement.lang =
+        currentLanguage;
 
     document.querySelectorAll(
         "[data-en][data-hi]"
     ).forEach(element => {
 
-        const text =
-            element.getAttribute(`data-${lang}`);
+        const value =
+            element.getAttribute(
+                `data-${currentLanguage}`
+            );
 
-        if (text) {
-            element.textContent = text;
+        if (value) {
+
+            element.textContent = value;
+
         }
+
     });
 
+
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+
+        btn.classList.toggle(
+            "active",
+            btn.dataset.lang === currentLanguage
+        );
+
+    });
+
+
     updateRoleLabels();
+
+    updateDashboardTexts();
+
 }
 
 
-function loadStoredLanguage() {
-
-    changeLanguage(currentLanguage);
-}
-
-
-// ============================================================
-// ROLE SELECTION
-// ============================================================
+// ==========================================================
+// ROLE SYSTEM
+// ==========================================================
 
 function setupRoleCards() {
 
@@ -154,12 +303,15 @@ function setupRoleCards() {
 
         card.addEventListener("click", () => {
 
-            selectedRole =
+            const role =
                 card.dataset.role;
 
-            openAuthModal(selectedRole);
+            openAuthModal(role);
+
         });
+
     });
+
 }
 
 
@@ -167,38 +319,37 @@ function updateRoleLabels() {
 
     if (!selectedRole) return;
 
-    const roleNames = {
+    const roleName =
+        t(selectedRole);
 
-        farmer: t("farmer"),
-
-        admin: t("admin"),
-
-        centre: t("centre")
-    };
-
-    const loginLabel =
+    const roleLabel =
         document.getElementById("roleLabel");
 
-    const registerLabel =
-        document.getElementById("registerRoleLabel");
+    const registerRoleLabel =
+        document.getElementById(
+            "registerRoleLabel"
+        );
 
-    if (loginLabel) {
+    if (roleLabel) {
 
-        loginLabel.textContent =
-            `${t("login") || "Login"} as ${roleNames[selectedRole]}`;
+        roleLabel.textContent =
+            `${t("login")} as ${roleName}`;
+
     }
 
-    if (registerLabel) {
+    if (registerRoleLabel) {
 
-        registerLabel.textContent =
-            `${t("register") || "Register"} as ${roleNames[selectedRole]}`;
+        registerRoleLabel.textContent =
+            `${t("register")} as ${roleName}`;
+
     }
+
 }
 
 
-// ============================================================
+// ==========================================================
 // AUTHENTICATION SETUP
-// ============================================================
+// ==========================================================
 
 function setupAuthentication() {
 
@@ -208,17 +359,17 @@ function setupAuthentication() {
     const closeSuccess =
         document.getElementById("closeSuccess");
 
-    const loginForm =
-        document.getElementById("loginForm");
-
-    const registerForm =
-        document.getElementById("registerForm");
-
     const toRegister =
         document.getElementById("toRegister");
 
     const toLogin =
         document.getElementById("toLogin");
+
+    const loginForm =
+        document.getElementById("loginForm");
+
+    const registerForm =
+        document.getElementById("registerForm");
 
 
     if (closeModal) {
@@ -227,6 +378,7 @@ function setupAuthentication() {
             "click",
             closeAuthModal
         );
+
     }
 
 
@@ -236,24 +388,7 @@ function setupAuthentication() {
             "click",
             closeSuccessModal
         );
-    }
 
-
-    if (loginForm) {
-
-        loginForm.addEventListener(
-            "submit",
-            handleLogin
-        );
-    }
-
-
-    if (registerForm) {
-
-        registerForm.addEventListener(
-            "submit",
-            handleRegister
-        );
     }
 
 
@@ -264,7 +399,9 @@ function setupAuthentication() {
             e.preventDefault();
 
             switchAuthTab("register");
+
         });
+
     }
 
 
@@ -275,7 +412,29 @@ function setupAuthentication() {
             e.preventDefault();
 
             switchAuthTab("login");
+
         });
+
+    }
+
+
+    if (loginForm) {
+
+        loginForm.addEventListener(
+            "submit",
+            handleLogin
+        );
+
+    }
+
+
+    if (registerForm) {
+
+        registerForm.addEventListener(
+            "submit",
+            handleRegister
+        );
+
     }
 
 
@@ -289,30 +448,19 @@ function setupAuthentication() {
             if (e.target === authModal) {
 
                 closeAuthModal();
+
             }
+
         });
+
     }
 
-
-    const successModal =
-        document.getElementById("successModal");
-
-    if (successModal) {
-
-        successModal.addEventListener("click", e => {
-
-            if (e.target === successModal) {
-
-                closeSuccessModal();
-            }
-        });
-    }
 }
 
 
-// ============================================================
-// OPEN AUTH MODAL
-// ============================================================
+// ==========================================================
+// AUTH MODAL
+// ==========================================================
 
 function openAuthModal(role) {
 
@@ -329,17 +477,10 @@ function openAuthModal(role) {
 
     updateRoleLabels();
 
-    document.getElementById("loginForm")?.reset();
-
-    document.getElementById("registerForm")?.reset();
-
     clearAllErrors();
+
 }
 
-
-// ============================================================
-// CLOSE AUTH MODAL
-// ============================================================
 
 function closeAuthModal() {
 
@@ -349,149 +490,139 @@ function closeAuthModal() {
     if (modal) {
 
         modal.classList.add("hidden");
+
     }
+
 }
 
-
-// ============================================================
-// AUTH TABS
-// ============================================================
 
 function switchAuthTab(tab) {
 
     document.querySelectorAll(".auth-tab")
-        .forEach(tabElement => {
-
-            tabElement.classList.remove("active");
-        });
+        .forEach(el =>
+            el.classList.remove("active")
+        );
 
 
     if (tab === "login") {
 
-        document
-            .getElementById("loginTab")
-            ?.classList.add("active");
+        document.getElementById(
+            "loginTab"
+        )?.classList.add("active");
 
     } else {
 
-        document
-            .getElementById("registerTab")
-            ?.classList.add("active");
+        document.getElementById(
+            "registerTab"
+        )?.classList.add("active");
+
     }
+
+    clearAllErrors();
+
 }
 
 
-// ============================================================
-// INPUT VALIDATION
-// ============================================================
+// ==========================================================
+// VALIDATION
+// ==========================================================
 
-function setupInputValidation() {
+function validateMobileNumber(value) {
 
-    const mobileInputs = [
-        "loginMobile",
-        "regMobile"
-    ];
+    return /^[6-9][0-9]{9}$/.test(value);
 
-    mobileInputs.forEach(id => {
-
-        const input =
-            document.getElementById(id);
-
-        if (!input) return;
-
-        input.addEventListener("input", () => {
-
-            input.value =
-                input.value
-                    .replace(/\D/g, "")
-                    .slice(0, 10);
-        });
-    });
-
-
-    const aadhaar =
-        document.getElementById("regAadhaar");
-
-    if (aadhaar) {
-
-        aadhaar.addEventListener("input", () => {
-
-            aadhaar.value =
-                aadhaar.value
-                    .replace(/\D/g, "")
-                    .slice(0, 12);
-        });
-    }
 }
 
 
-function validateMobileNumber(number) {
+function validateAadhaarNumber(value) {
 
-    return /^[0-9]{10}$/.test(number);
+    return /^[0-9]{12}$/.test(value);
+
 }
 
 
-function validateAadhaarNumber(number) {
+function validatePassword(value) {
 
-    return /^[0-9]{12}$/.test(number);
+    return value.length >= 8;
+
 }
 
 
-function validatePassword(password) {
-
-    return password &&
-        password.length >= 8;
-}
-
-
-// ============================================================
-// ERROR HANDLING
-// ============================================================
-
-function clearAllErrors() {
-
-    document
-        .querySelectorAll(".error-message")
-        .forEach(error => {
-
-            error.textContent = "";
-        });
-
-
-    document
-        .querySelectorAll(".form-input")
-        .forEach(input => {
-
-            input.classList.remove("error");
-        });
-}
-
-
-function showError(elementId, message) {
+function showError(id, message) {
 
     const input =
-        document.getElementById(elementId);
+        document.getElementById(id);
 
     const error =
         document.getElementById(
-            elementId + "Error"
+            `${id}Error`
         );
 
     if (input) {
 
         input.classList.add("error");
+
     }
 
     if (error) {
 
         error.textContent = message;
+
     }
+
 }
 
 
-// ============================================================
+function clearError(id) {
+
+    const input =
+        document.getElementById(id);
+
+    const error =
+        document.getElementById(
+            `${id}Error`
+        );
+
+    if (input) {
+
+        input.classList.remove("error");
+
+    }
+
+    if (error) {
+
+        error.textContent = "";
+
+    }
+
+}
+
+
+function clearAllErrors() {
+
+    document.querySelectorAll(
+        ".error-message"
+    ).forEach(el => {
+
+        el.textContent = "";
+
+    });
+
+
+    document.querySelectorAll(
+        ".form-input"
+    ).forEach(el => {
+
+        el.classList.remove("error");
+
+    });
+
+}
+
+
+// ==========================================================
 // LOGIN
-// ============================================================
+// ==========================================================
 
 function handleLogin(e) {
 
@@ -501,16 +632,14 @@ function handleLogin(e) {
 
 
     const mobile =
-        document
-            .getElementById("loginMobile")
-            .value
-            .trim();
-
+        document.getElementById(
+            "loginMobile"
+        ).value.trim();
 
     const password =
-        document
-            .getElementById("loginPassword")
-            .value;
+        document.getElementById(
+            "loginPassword"
+        ).value;
 
 
     let valid = true;
@@ -524,6 +653,7 @@ function handleLogin(e) {
         );
 
         valid = false;
+
     }
 
 
@@ -535,6 +665,7 @@ function handleLogin(e) {
         );
 
         valid = false;
+
     }
 
 
@@ -543,7 +674,6 @@ function handleLogin(e) {
 
     const user =
         users.find(u =>
-
             u.mobile === mobile &&
             u.password === password &&
             u.role === selectedRole
@@ -557,58 +687,44 @@ function handleLogin(e) {
         );
 
         return;
+
     }
 
 
-    // Store logged-in user
-
-    currentUser = {
-
-        id: user.id,
-
-        role: user.role,
-
-        name: user.name,
-
-        mobile: user.mobile,
-
-        aadhaar: user.aadhaar,
-
-        village: user.village
-    };
-
+    // Save current user
+    currentUser = user;
 
     localStorage.setItem(
         "samayKrishiLoggedInUser",
-        JSON.stringify(currentUser)
+        JSON.stringify(user)
     );
 
 
-    // Close login modal
+    // Show success
+    showSuccessModal(
+        t("loginSuccess"),
+        t("welcomeMessage")
+    );
 
-    closeAuthModal();
 
-
-    // Open dashboard
-
+    // IMPORTANT:
+    // After 1.5 sec open dashboard
     setTimeout(() => {
 
-        if (user.role === "farmer") {
+        closeAuthModal();
 
-            startFarmerJourney(user);
+        closeSuccessModal();
 
-        } else {
+        openDashboard(user);
 
-            showRoleDashboard(user);
-        }
+    }, 1500);
 
-    }, 400);
 }
 
 
-// ============================================================
+// ==========================================================
 // REGISTRATION
-// ============================================================
+// ==========================================================
 
 function handleRegister(e) {
 
@@ -618,27 +734,34 @@ function handleRegister(e) {
 
 
     const name =
-        document.getElementById("regName").value.trim();
-
+        document.getElementById(
+            "regName"
+        ).value.trim();
 
     const mobile =
-        document.getElementById("regMobile").value.trim();
-
+        document.getElementById(
+            "regMobile"
+        ).value.trim();
 
     const aadhaar =
-        document.getElementById("regAadhaar").value.trim();
-
+        document.getElementById(
+            "regAadhaar"
+        ).value.trim();
 
     const village =
-        document.getElementById("regVillage").value.trim();
-
+        document.getElementById(
+            "regVillage"
+        ).value.trim();
 
     const password =
-        document.getElementById("regPassword").value;
-
+        document.getElementById(
+            "regPassword"
+        ).value;
 
     const confirmPassword =
-        document.getElementById("regConfirmPassword").value;
+        document.getElementById(
+            "regConfirmPassword"
+        ).value;
 
 
     let valid = true;
@@ -648,10 +771,11 @@ function handleRegister(e) {
 
         showError(
             "regName",
-            t("fieldRequired")
+            t("nameRequired")
         );
 
         valid = false;
+
     }
 
 
@@ -663,10 +787,15 @@ function handleRegister(e) {
         );
 
         valid = false;
+
     }
 
 
-    if (users.some(u => u.mobile === mobile)) {
+    if (
+        users.some(
+            u => u.mobile === mobile
+        )
+    ) {
 
         showError(
             "regMobile",
@@ -674,6 +803,7 @@ function handleRegister(e) {
         );
 
         valid = false;
+
     }
 
 
@@ -685,6 +815,7 @@ function handleRegister(e) {
         );
 
         valid = false;
+
     }
 
 
@@ -692,10 +823,11 @@ function handleRegister(e) {
 
         showError(
             "regVillage",
-            t("fieldRequired")
+            t("villageRequired")
         );
 
         valid = false;
+
     }
 
 
@@ -707,6 +839,7 @@ function handleRegister(e) {
         );
 
         valid = false;
+
     }
 
 
@@ -718,6 +851,7 @@ function handleRegister(e) {
         );
 
         valid = false;
+
     }
 
 
@@ -730,20 +864,21 @@ function handleRegister(e) {
 
         role: selectedRole,
 
-        name,
+        name: name,
 
-        mobile,
+        mobile: mobile,
 
-        aadhaar,
+        aadhaar: aadhaar,
 
-        village,
+        village: village,
 
-        password,
+        password: password,
 
         createdAt:
             new Date().toISOString(),
 
         procurement: null
+
     };
 
 
@@ -768,47 +903,76 @@ function handleRegister(e) {
 
         switchAuthTab("login");
 
+        document.getElementById(
+            "loginMobile"
+        ).value = mobile;
+
     }, 1800);
+
 }
 
 
-// ============================================================
+// ==========================================================
 // SUCCESS MODAL
-// ============================================================
+// ==========================================================
 
-function showSuccessModal(title, message) {
+function showSuccessModal(
+    title,
+    message
+) {
+
+    const titleElement =
+        document.getElementById(
+            "successTitle"
+        );
+
+    const messageElement =
+        document.getElementById(
+            "successMessage"
+        );
 
     const modal =
-        document.getElementById("successModal");
-
-    if (!modal) return;
-
-
-    document.getElementById(
-        "successTitle"
-    ).textContent = title;
+        document.getElementById(
+            "successModal"
+        );
 
 
-    document.getElementById(
-        "successMessage"
-    ).textContent = message;
+    if (titleElement) {
 
+        titleElement.textContent = title;
 
-    modal.classList.remove("hidden");
+    }
+
+    if (messageElement) {
+
+        messageElement.textContent =
+            message;
+
+    }
+
+    if (modal) {
+
+        modal.classList.remove(
+            "hidden"
+        );
+
+    }
+
 }
 
 
 function closeSuccessModal() {
 
-    document
-        .getElementById("successModal")
-        ?.classList.add("hidden");
+    document.getElementById(
+        "successModal"
+    )?.classList.add("hidden");
+
 }
 
 
-// ============================================================
+// ==========================================================
 // NOTIFICATION
-// ============================================================
+// ==========================================================
 
 function showNotification(message) {
 
@@ -817,1014 +981,258 @@ function showNotification(message) {
             "errorNotification"
         );
 
-    if (!notification) {
+    if (!notification) return;
 
-        alert(message);
+    notification.textContent =
+        message;
 
-        return;
-    }
-
-
-    notification.textContent = message;
-
-    notification.classList.remove("hidden");
+    notification.classList.remove(
+        "hidden"
+    );
 
 
     setTimeout(() => {
 
-        notification.classList.add("hidden");
-
-    }, 4000);
-}
-
-
-// ============================================================
-// FARMER JOURNEY
-// ============================================================
-
-function startFarmerJourney(user) {
-
-    createFarmerDetailsModal(user);
-}
-
-
-// ============================================================
-// FARMER DETAILS POPUP
-// ============================================================
-
-function createFarmerDetailsModal(user) {
-
-    removeExistingJourneyModal();
-
-
-    const modal =
-        document.createElement("div");
-
-    modal.id =
-        "farmerDetailsModal";
-
-    modal.className =
-        "journey-modal";
-
-
-    modal.innerHTML = `
-
-        <div class="journey-card">
-
-            <div class="journey-icon">🌾</div>
-
-            <div class="journey-progress">
-                <span class="active"></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-
-            <h2>Welcome, ${escapeHTML(user.name)}!</h2>
-
-            <p>
-                Let's collect a few details
-                to find the best procurement slot for you.
-            </p>
-
-            <div class="user-summary">
-
-                <div>
-                    <strong>👤 Farmer</strong>
-                    <span>${escapeHTML(user.name)}</span>
-                </div>
-
-                <div>
-                    <strong>📱 Mobile</strong>
-                    <span>${escapeHTML(user.mobile)}</span>
-                </div>
-
-                <div>
-                    <strong>🏡 Village</strong>
-                    <span>${escapeHTML(user.village)}</span>
-                </div>
-
-            </div>
-
-            <button
-                class="journey-btn"
-                id="startProcurementBtn">
-
-                Continue →
-
-            </button>
-
-        </div>
-    `;
-
-
-    document.body.appendChild(modal);
-
-
-    requestAnimationFrame(() => {
-
-        modal.classList.add("show");
-    });
-
-
-    document
-        .getElementById("startProcurementBtn")
-        .addEventListener(
-            "click",
-            () => openCropDetailsModal(user)
-        );
-}
-
-
-// ============================================================
-// CROP DETAILS
-// ============================================================
-
-function openCropDetailsModal(user) {
-
-    const modal =
-        document.getElementById(
-            "farmerDetailsModal"
+        notification.classList.add(
+            "hidden"
         );
 
-    if (modal) {
+    }, 3500);
 
-        modal.remove();
-    }
-
-
-    const cropModal =
-        document.createElement("div");
-
-    cropModal.id =
-        "cropDetailsModal";
-
-    cropModal.className =
-        "journey-modal";
-
-
-    cropModal.innerHTML = `
-
-        <div class="journey-card">
-
-            <div class="journey-icon">🌱</div>
-
-            <div class="journey-progress">
-                <span class="active"></span>
-                <span class="active"></span>
-                <span></span>
-                <span></span>
-            </div>
-
-            <h2>Procurement Details</h2>
-
-            <p>
-                Tell us about the produce you want to sell.
-            </p>
-
-            <div class="journey-form">
-
-                <label>Crop Type</label>
-
-                <select id="cropType">
-
-                    <option value="">
-                        Select crop
-                    </option>
-
-                    <option>Wheat</option>
-
-                    <option>Rice</option>
-
-                    <option>Paddy</option>
-
-                    <option>Maize</option>
-
-                    <option>Potato</option>
-
-                    <option>Mustard</option>
-
-                    <option>Sugarcane</option>
-
-                    <option>Other</option>
-
-                </select>
-
-
-                <label>Expected Selling Date</label>
-
-                <input
-                    type="date"
-                    id="sellingDate"
-                >
-
-
-                <label>Approximate Weight (kg)</label>
-
-                <input
-                    type="number"
-                    id="cropWeight"
-                    min="1"
-                    placeholder="e.g. 500"
-                >
-
-
-                <label>Preferred Selling Location</label>
-
-                <select id="sellingLocation">
-
-                    <option value="">
-                        Select location
-                    </option>
-
-                    <option>
-                        Nearest Procurement Centre
-                    </option>
-
-                    <option>
-                        Village Procurement Centre
-                    </option>
-
-                    <option>
-                        District Procurement Centre
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <div
-                id="journeyError"
-                class="journey-error">
-            </div>
-
-
-            <button
-                class="journey-btn"
-                id="findSlotBtn">
-
-                Find Best Slot →
-
-            </button>
-
-        </div>
-    `;
-
-
-    document.body.appendChild(cropModal);
-
-
-    requestAnimationFrame(() => {
-
-        cropModal.classList.add("show");
-    });
-
-
-    document
-        .getElementById("findSlotBtn")
-        .addEventListener(
-            "click",
-            () => recommendSlot(user)
-        );
 }
 
 
-// ============================================================
-// SLOT RECOMMENDATION
-// ============================================================
+// ==========================================================
+// DASHBOARD
+// ==========================================================
 
-function recommendSlot(user) {
+function openDashboard(user) {
 
-    const crop =
-        document.getElementById(
-            "cropType"
-        ).value;
-
-
-    const date =
-        document.getElementById(
-            "sellingDate"
-        ).value;
-
-
-    const weight =
-        document.getElementById(
-            "cropWeight"
-        ).value;
-
-
-    const location =
-        document.getElementById(
-            "sellingLocation"
-        ).value;
-
-
-    const error =
-        document.getElementById(
-            "journeyError"
-        );
-
-
-    if (!crop || !date || !weight || !location) {
-
-        error.textContent =
-            "Please fill all the details.";
-
-        return;
-    }
-
-
-    if (Number(weight) <= 0) {
-
-        error.textContent =
-            "Please enter a valid weight.";
-
-        return;
-    }
-
-
-    const recommendedSlot =
-        calculateSlot(Number(weight));
-
-
-    const procurementData = {
-
-        crop,
-
-        sellingDate: date,
-
-        weight: Number(weight),
-
-        location,
-
-        slot: recommendedSlot,
-
-        status: "Slot Booked",
-
-        bookingId:
-            "SK" +
-            Date.now().toString().slice(-6)
-    };
-
-
-    user.procurement =
-        procurementData;
-
-
-    saveUserProcurement(user);
-
-
-    document
-        .getElementById(
-            "cropDetailsModal"
-        )
-        ?.remove();
-
-
-    showSlotRecommendation(
-        user,
-        procurementData
-    );
-}
-
-
-// ============================================================
-// SLOT ALGORITHM
-// ============================================================
-
-function calculateSlot(weight) {
-
-    if (weight <= 200) {
-
-        return "09:00 AM – 10:00 AM";
-
-    }
-
-    if (weight <= 500) {
-
-        return "10:00 AM – 11:00 AM";
-
-    }
-
-    if (weight <= 1000) {
-
-        return "11:00 AM – 12:00 PM";
-
-    }
-
-    return "12:00 PM – 01:00 PM";
-}
-
-
-// ============================================================
-// SLOT RESULT
-// ============================================================
-
-function showSlotRecommendation(
-    user,
-    data
-) {
-
-    const modal =
-        document.createElement("div");
-
-    modal.className =
-        "journey-modal";
-
-
-    modal.innerHTML = `
-
-        <div class="journey-card slot-result">
-
-            <div class="success-circle">
-                ✓
-            </div>
-
-            <div class="journey-progress">
-                <span class="active"></span>
-                <span class="active"></span>
-                <span class="active"></span>
-                <span></span>
-            </div>
-
-            <h2>Best Slot Found!</h2>
-
-            <p>
-                We found a suitable procurement slot
-                based on your details.
-            </p>
-
-
-            <div class="slot-box">
-
-                <small>RECOMMENDED TIME</small>
-
-                <strong>
-                    ${data.slot}
-                </strong>
-
-                <span>
-                    📅 ${formatDate(data.sellingDate)}
-                </span>
-
-            </div>
-
-
-            <div class="booking-info">
-
-                <div>
-                    <span>🌾 Crop</span>
-                    <strong>${escapeHTML(data.crop)}</strong>
-                </div>
-
-                <div>
-                    <span>⚖️ Weight</span>
-                    <strong>${data.weight} kg</strong>
-                </div>
-
-                <div>
-                    <span>📍 Centre</span>
-                    <strong>${escapeHTML(data.location)}</strong>
-                </div>
-
-            </div>
-
-
-            <button
-                class="journey-btn"
-                id="confirmSlotBtn">
-
-                Confirm & View Status
-
-            </button>
-
-        </div>
-    `;
-
-
-    document.body.appendChild(modal);
-
-
-    requestAnimationFrame(() => {
-
-        modal.classList.add("show");
-    });
-
-
-    document
-        .getElementById("confirmSlotBtn")
-        .addEventListener(
-            "click",
-            () => {
-
-                modal.remove();
-
-                showProcurementStatus(
-                    user
-                );
-            }
-        );
-}
-
-
-// ============================================================
-// PROCUREMENT STATUS
-// ============================================================
-
-function showProcurementStatus(user) {
-
-    const data =
-        user.procurement;
-
-
-    const modal =
-        document.createElement("div");
-
-    modal.className =
-        "journey-modal";
-
-
-    modal.innerHTML = `
-
-        <div class="journey-card status-card">
-
-            <div class="status-icon">
-                📦
-            </div>
-
-            <div class="journey-progress">
-                <span class="active"></span>
-                <span class="active"></span>
-                <span class="active"></span>
-                <span class="active"></span>
-            </div>
-
-            <h2>Procurement Status</h2>
-
-            <p>
-                Your procurement request has been
-                successfully scheduled.
-            </p>
-
-
-            <div class="status-main">
-
-                <span class="status-badge">
-                    ✓ ${data.status}
-                </span>
-
-                <h3>
-                    ${data.slot}
-                </h3>
-
-                <p>
-                    ${formatDate(data.sellingDate)}
-                </p>
-
-            </div>
-
-
-            <div class="status-timeline">
-
-                <div class="timeline-item completed">
-
-                    <span>✓</span>
-
-                    <div>
-                        <strong>Request Submitted</strong>
-                        <small>Completed</small>
-                    </div>
-
-                </div>
-
-
-                <div class="timeline-item completed">
-
-                    <span>✓</span>
-
-                    <div>
-                        <strong>Slot Assigned</strong>
-                        <small>${data.slot}</small>
-                    </div>
-
-                </div>
-
-
-                <div class="timeline-item current">
-
-                    <span>●</span>
-
-                    <div>
-                        <strong>Procurement</strong>
-                        <small>Waiting for visit</small>
-                    </div>
-
-                </div>
-
-
-                <div class="timeline-item">
-
-                    <span>○</span>
-
-                    <div>
-                        <strong>Payment</strong>
-                        <small>Pending procurement</small>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="booking-id">
-
-                Booking ID:
-                <strong>${data.bookingId}</strong>
-
-            </div>
-
-
-            <button
-                class="journey-btn"
-                id="dashboardBtn">
-
-                Open Farmer Dashboard
-
-            </button>
-
-        </div>
-    `;
-
-
-    document.body.appendChild(modal);
-
-
-    requestAnimationFrame(() => {
-
-        modal.classList.add("show");
-    });
-
-
-    document
-        .getElementById("dashboardBtn")
-        .addEventListener(
-            "click",
-            () => {
-
-                modal.remove();
-
-                showFarmerDashboard(user);
-            }
-        );
-}
-
-
-// ============================================================
-// FARMER DASHBOARD
-// ============================================================
-
-function showFarmerDashboard(user) {
-
-    document
-        .querySelector(".container")
-        ?.classList.add("dashboard-background");
-
-
-    const existing =
+    const dashboard =
         document.getElementById(
             "farmerDashboard"
         );
 
+    const container =
+        document.querySelector(
+            ".container"
+        );
 
-    if (existing) {
+    const languageToggle =
+        document.querySelector(
+            ".language-toggle"
+        );
 
-        existing.remove();
+
+    // Currently dashboard is designed for farmer.
+    // Admin/Centre can still login but dashboard
+    // is only opened for farmer.
+    if (user.role !== "farmer") {
+
+        showNotification(
+            "Admin/Centre dashboard will be added separately."
+        );
+
+        return;
+
     }
 
 
-    const dashboard =
-        document.createElement("div");
+    if (container) {
 
-    dashboard.id =
-        "farmerDashboard";
+        container.style.display =
+            "none";
 
-    dashboard.className =
-        "farmer-dashboard";
+    }
 
 
-    const data =
-        user.procurement;
+    if (languageToggle) {
 
+        languageToggle.style.display =
+            "none";
 
-    dashboard.innerHTML = `
+    }
 
-        <div class="dashboard-header">
 
-            <div>
+    if (dashboard) {
 
-                <span>🌾 Samay Krishi</span>
-
-                <h1>
-                    Namaste, ${escapeHTML(user.name)}!
-                </h1>
-
-                <p>
-                    Here's your procurement overview.
-                </p>
-
-            </div>
-
-            <button
-                class="logout-btn"
-                id="logoutBtn">
-
-                Logout
-
-            </button>
-
-        </div>
-
-
-        <div class="dashboard-grid">
-
-            <div class="dashboard-card profile-card">
-
-                <div class="card-icon">👨‍🌾</div>
-
-                <h3>Farmer Profile</h3>
-
-                <div class="profile-details">
-
-                    <p>
-                        <span>Name</span>
-                        <strong>${escapeHTML(user.name)}</strong>
-                    </p>
-
-                    <p>
-                        <span>Mobile</span>
-                        <strong>${escapeHTML(user.mobile)}</strong>
-                    </p>
-
-                    <p>
-                        <span>Village</span>
-                        <strong>${escapeHTML(user.village)}</strong>
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="dashboard-card slot-card">
-
-                <div class="card-icon">📅</div>
-
-                <h3>Your Procurement Slot</h3>
-
-                <div class="big-slot">
-
-                    ${data.slot}
-
-                </div>
-
-                <p>
-                    ${formatDate(data.sellingDate)}
-                </p>
-
-                <span class="status-badge">
-                    ✓ Slot Booked
-                </span>
-
-            </div>
-
-
-            <div class="dashboard-card crop-card">
-
-                <div class="card-icon">🌱</div>
-
-                <h3>Produce Details</h3>
-
-                <div class="profile-details">
-
-                    <p>
-                        <span>Crop</span>
-                        <strong>${escapeHTML(data.crop)}</strong>
-                    </p>
-
-                    <p>
-                        <span>Weight</span>
-                        <strong>${data.weight} kg</strong>
-                    </p>
-
-                    <p>
-                        <span>Location</span>
-                        <strong>${escapeHTML(data.location)}</strong>
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="dashboard-card status-dashboard-card">
-
-                <div class="card-icon">📦</div>
-
-                <h3>Procurement Status</h3>
-
-                <div class="progress-line">
-
-                    <div class="progress-fill"></div>
-
-                </div>
-
-                <div class="status-steps">
-
-                    <span class="done">
-                        Request
-                    </span>
-
-                    <span class="done">
-                        Slot
-                    </span>
-
-                    <span class="current">
-                        Procurement
-                    </span>
-
-                    <span>
-                        Payment
-                    </span>
-
-                </div>
-
-                <div class="status-badge">
-                    ${data.status}
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="dashboard-footer">
-
-            <p>
-                Need help?
-                Contact your nearest procurement centre.
-            </p>
-
-            <strong>
-                Booking ID: ${data.bookingId}
-            </strong>
-
-        </div>
-    `;
-
-
-    document.body.appendChild(dashboard);
-
-
-    requestAnimationFrame(() => {
-
-        dashboard.classList.add("show");
-    });
-
-
-    document
-        .getElementById("logoutBtn")
-        .addEventListener(
-            "click",
-            logoutUser
-        );
-}
-
-
-// ============================================================
-// ADMIN / CENTRE DASHBOARD
-// ============================================================
-
-function showRoleDashboard(user) {
-
-    const roleName =
-        user.role === "admin"
-            ? "Procurement Admin"
-            : "Procurement Centre";
-
-
-    const modal =
-        document.createElement("div");
-
-    modal.className =
-        "journey-modal";
-
-
-    modal.innerHTML = `
-
-        <div class="journey-card">
-
-            <div class="journey-icon">
-                ${user.role === "admin" ? "👔" : "🏢"}
-            </div>
-
-            <h2>
-                ${roleName} Dashboard
-            </h2>
-
-            <p>
-                Welcome ${escapeHTML(user.name)}.
-            </p>
-
-            <div class="admin-placeholder">
-
-                <div>📊</div>
-
-                <h3>Management Panel</h3>
-
-                <p>
-                    Procurement monitoring,
-                    farmer queues and payment
-                    management will appear here.
-                </p>
-
-            </div>
-
-            <button
-                class="journey-btn"
-                id="adminCloseBtn">
-
-                Continue
-
-            </button>
-
-        </div>
-    `;
-
-
-    document.body.appendChild(modal);
-
-
-    requestAnimationFrame(() => {
-
-        modal.classList.add("show");
-    });
-
-
-    document
-        .getElementById("adminCloseBtn")
-        .addEventListener(
-            "click",
-            () => {
-
-                modal.remove();
-            }
-        );
-}
-
-
-// ============================================================
-// SAVE PROCUREMENT
-// ============================================================
-
-function saveUserProcurement(user) {
-
-    const index =
-        users.findIndex(
-            u => u.id === user.id
+        dashboard.classList.remove(
+            "hidden"
         );
 
-
-    if (index !== -1) {
-
-        users[index] =
-            {
-                ...users[index],
-                procurement:
-                    user.procurement
-            };
-
-
-        localStorage.setItem(
-            "samayKrishiUsers",
-            JSON.stringify(users)
+        dashboard.classList.add(
+            "dashboard-visible"
         );
+
     }
 
 
     currentUser = user;
 
+    fillFarmerProfile(user);
 
-    localStorage.setItem(
-        "samayKrishiLoggedInUser",
-        JSON.stringify(user)
-    );
+    updateDashboardTexts();
+
+    loadProcurementStatus(user);
+
 }
 
 
-// ============================================================
+function closeDashboard() {
+
+    const dashboard =
+        document.getElementById(
+            "farmerDashboard"
+        );
+
+    const container =
+        document.querySelector(
+            ".container"
+        );
+
+    const languageToggle =
+        document.querySelector(
+            ".language-toggle"
+        );
+
+
+    if (dashboard) {
+
+        dashboard.classList.add(
+            "hidden"
+        );
+
+    }
+
+
+    if (container) {
+
+        container.style.display =
+            "";
+
+    }
+
+
+    if (languageToggle) {
+
+        languageToggle.style.display =
+            "";
+
+    }
+
+}
+
+
+function fillFarmerProfile(user) {
+
+    const name =
+        user.name || "-";
+
+    // Existing HTML has both Name and Farmer Name.
+    // We use the registered farmer name for both
+    // without changing the HTML.
+    setText(
+        "dashboardFarmerName",
+        name
+    );
+
+    setText(
+        "profileName",
+        name
+    );
+
+    setText(
+        "profileFarmerName",
+        name
+    );
+
+    setText(
+        "profileMobile",
+        user.mobile || "-"
+    );
+
+    setText(
+        "profileAadhaar",
+        maskAadhaar(
+            user.aadhaar
+        )
+    );
+
+    setText(
+        "profileVillage",
+        user.village || "-"
+    );
+
+}
+
+
+function maskAadhaar(aadhaar) {
+
+    if (!aadhaar) return "-";
+
+    // Only last 4 digits visible
+    return "XXXX XXXX " +
+        aadhaar.slice(-4);
+
+}
+
+
+function setText(id, value) {
+
+    const element =
+        document.getElementById(id);
+
+    if (element) {
+
+        element.textContent =
+            value;
+
+    }
+
+}
+
+
+// ==========================================================
+// DASHBOARD BUTTONS
+// ==========================================================
+
+function setupDashboard() {
+
+    const logoutBtn =
+        document.getElementById(
+            "logoutBtn"
+        );
+
+    if (logoutBtn) {
+
+        logoutBtn.addEventListener(
+            "click",
+            logoutUser
+        );
+
+    }
+
+
+    const startBtn =
+        document.getElementById(
+            "startProcurementBtn"
+        );
+
+    if (startBtn) {
+
+        startBtn.addEventListener(
+            "click",
+            openProcurementModal
+        );
+
+    }
+
+}
+
+
+// ==========================================================
 // LOGOUT
-// ============================================================
+// ==========================================================
 
 function logoutUser() {
 
@@ -1834,108 +1242,795 @@ function logoutUser() {
 
     currentUser = null;
 
+    procurementData = null;
 
-    document
-        .getElementById("farmerDashboard")
-        ?.remove();
+    closeDashboard();
 
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 
-    document
-        .querySelector(".dashboard-background")
-        ?.classList.remove(
-            "dashboard-background"
-        );
-
-
-    location.reload();
 }
 
 
-// ============================================================
-// UTILITIES
-// ============================================================
+// ==========================================================
+// PROCUREMENT MODAL
+// ==========================================================
+
+function setupProcurement() {
+
+    const closeBtn =
+        document.getElementById(
+            "closeProcurementModal"
+        );
+
+    const procurementForm =
+        document.getElementById(
+            "procurementForm"
+        );
+
+    const confirmBtn =
+        document.getElementById(
+            "confirmSlotBtn"
+        );
+
+    const changeBtn =
+        document.getElementById(
+            "changeSlotBtn"
+        );
+
+
+    if (closeBtn) {
+
+        closeBtn.addEventListener(
+            "click",
+            closeProcurementModal
+        );
+
+    }
+
+
+    if (procurementForm) {
+
+        procurementForm.addEventListener(
+            "submit",
+            handleProcurementSubmit
+        );
+
+    }
+
+
+    if (confirmBtn) {
+
+        confirmBtn.addEventListener(
+            "click",
+            confirmSlot
+        );
+
+    }
+
+
+    if (changeBtn) {
+
+        changeBtn.addEventListener(
+            "click",
+            () => {
+
+                closeSlotModal();
+
+                openProcurementModal();
+
+            }
+        );
+
+    }
+
+
+    const procurementModal =
+        document.getElementById(
+            "procurementModal"
+        );
+
+    if (procurementModal) {
+
+        procurementModal.addEventListener(
+            "click",
+            e => {
+
+                if (
+                    e.target ===
+                    procurementModal
+                ) {
+
+                    closeProcurementModal();
+
+                }
+
+            }
+        );
+
+    }
+
+}
+
+
+function openProcurementModal() {
+
+    if (!currentUser) {
+
+        showNotification(
+            "Please login first."
+        );
+
+        return;
+
+    }
+
+
+    const modal =
+        document.getElementById(
+            "procurementModal"
+        );
+
+    if (!modal) return;
+
+
+    // Set minimum selling date to today
+    const dateInput =
+        document.getElementById(
+            "sellingDate"
+        );
+
+    if (dateInput) {
+
+        const today =
+            new Date()
+                .toISOString()
+                .split("T")[0];
+
+        dateInput.min = today;
+
+    }
+
+
+    modal.classList.remove(
+        "hidden"
+    );
+
+}
+
+
+function closeProcurementModal() {
+
+    document.getElementById(
+        "procurementModal"
+    )?.classList.add("hidden");
+
+}
+
+
+// ==========================================================
+// PROCUREMENT FORM
+// ==========================================================
+
+function handleProcurementSubmit(e) {
+
+    e.preventDefault();
+
+
+    const crop =
+        document.getElementById(
+            "cropType"
+        ).value;
+
+    const date =
+        document.getElementById(
+            "sellingDate"
+        ).value;
+
+    const weight =
+        document.getElementById(
+            "cropWeight"
+        ).value;
+
+    const centre =
+        document.getElementById(
+            "preferredCentre"
+        ).value;
+
+
+    if (
+        !crop ||
+        !date ||
+        !weight ||
+        !centre
+    ) {
+
+        return;
+
+    }
+
+
+    // Save user's requirements
+    procurementData = {
+
+        crop: crop,
+
+        date: date,
+
+        weight: Number(weight),
+
+        centre: centre
+
+    };
+
+
+    // Generate smart recommendation
+    const recommendation =
+        generateSlotRecommendation(
+            procurementData
+        );
+
+
+    displaySlotRecommendation(
+        recommendation
+    );
+
+
+    closeProcurementModal();
+
+}
+
+
+// ==========================================================
+// SMART SLOT RECOMMENDATION
+// ==========================================================
+
+function generateSlotRecommendation(data) {
+
+    /*
+        Prototype smart recommendation engine.
+
+        In a real SIH project this can later be
+        connected to a backend/API containing:
+
+        - centre capacity
+        - current queue
+        - farmer count
+        - procurement timings
+        - available slots
+    */
+
+
+    const slots = [
+
+        {
+            time: "08:00 AM - 10:00 AM",
+            queue: 8
+        },
+
+        {
+            time: "10:00 AM - 12:00 PM",
+            queue: 14
+        },
+
+        {
+            time: "12:00 PM - 02:00 PM",
+            queue: 21
+        },
+
+        {
+            time: "02:00 PM - 04:00 PM",
+            queue: 11
+        },
+
+        {
+            time: "04:00 PM - 06:00 PM",
+            queue: 6
+        }
+
+    ];
+
+
+    // Choose slot with lowest queue
+    const bestSlot =
+        slots.reduce(
+            (best, current) =>
+                current.queue <
+                best.queue
+                    ? current
+                    : best
+        );
+
+
+    return {
+
+        date: data.date,
+
+        time: bestSlot.time,
+
+        centre: data.centre,
+
+        queue: bestSlot.queue
+
+    };
+
+}
+
+
+// ==========================================================
+// DISPLAY RECOMMENDED SLOT
+// ==========================================================
+
+function displaySlotRecommendation(
+    recommendation
+) {
+
+    setText(
+        "recommendedDate",
+        formatDate(
+            recommendation.date
+        )
+    );
+
+
+    setText(
+        "recommendedTime",
+        recommendation.time
+    );
+
+
+    setText(
+        "recommendedCentre",
+        recommendation.centre
+    );
+
+
+    setText(
+        "recommendedQueue",
+        `${recommendation.queue} farmers`
+    );
+
+
+    const slotModal =
+        document.getElementById(
+            "slotModal"
+        );
+
+    if (slotModal) {
+
+        slotModal.classList.remove(
+            "hidden"
+        );
+
+    }
+
+}
+
+
+function closeSlotModal() {
+
+    document.getElementById(
+        "slotModal"
+    )?.classList.add("hidden");
+
+}
+
 
 function formatDate(dateString) {
 
-    if (!dateString) return "";
+    if (!dateString) return "-";
+
 
     const date =
-        new Date(dateString);
+        new Date(
+            dateString +
+            "T00:00:00"
+        );
+
 
     return date.toLocaleDateString(
-        "en-IN",
+        currentLanguage === "hi"
+            ? "hi-IN"
+            : "en-IN",
         {
             day: "numeric",
-            month: "long",
+            month: "short",
             year: "numeric"
         }
     );
+
 }
 
 
-function removeExistingJourneyModal() {
+// ==========================================================
+// CONFIRM SLOT
+// ==========================================================
 
-    document
-        .querySelectorAll(
-            ".journey-modal"
-        )
-        .forEach(modal => {
+function confirmSlot() {
 
-            modal.remove();
-        });
+    if (
+        !currentUser ||
+        !procurementData
+    ) {
+
+        return;
+
+    }
+
+
+    const recommendation =
+        generateSlotRecommendation(
+            procurementData
+        );
+
+
+    const finalData = {
+
+        ...procurementData,
+
+        recommendedTime:
+            recommendation.time,
+
+        queue:
+            recommendation.queue,
+
+        confirmedAt:
+            new Date().toISOString(),
+
+        status:
+            "In Queue"
+
+    };
+
+
+    // Store inside current user
+    currentUser.procurement =
+        finalData;
+
+
+    // Update users array
+    users =
+        users.map(user =>
+            user.id === currentUser.id
+                ? currentUser
+                : user
+        );
+
+
+    localStorage.setItem(
+        "samayKrishiUsers",
+        JSON.stringify(users)
+    );
+
+
+    localStorage.setItem(
+        "samayKrishiLoggedInUser",
+        JSON.stringify(currentUser)
+    );
+
+
+    closeSlotModal();
+
+
+    // Show procurement status
+    showProcurementStatus(
+        finalData
+    );
+
+
+    // Scroll to status section
+    setTimeout(() => {
+
+        document
+            .getElementById(
+                "procurementStatusSection"
+            )
+            ?.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+    }, 300);
+
 }
 
 
-function escapeHTML(value) {
+// ==========================================================
+// PROCUREMENT STATUS
+// ==========================================================
 
-    const div =
-        document.createElement("div");
+function showProcurementStatus(data) {
 
-    div.textContent =
-        value ?? "";
+    const section =
+        document.getElementById(
+            "procurementStatusSection"
+        );
 
-    return div.innerHTML;
+    if (!section) return;
+
+
+    section.classList.remove(
+        "hidden"
+    );
+
+
+    setText(
+        "confirmedSlotText",
+        `${formatDate(data.date)} • ${data.recommendedTime}`
+    );
+
+
+    setText(
+        "statusBadge",
+        "In Queue"
+    );
+
+
+    updateStatusTimeline();
+
 }
 
 
-// ============================================================
-// AUTO LOGIN CHECK
-// ============================================================
+function updateStatusTimeline() {
+
+    const section =
+        document.getElementById(
+            "procurementStatusSection"
+        );
+
+    if (!section) return;
+
+
+    const steps =
+        section.querySelectorAll(
+            ".status-step"
+        );
+
+
+    // Registration
+    if (steps[0]) {
+
+        steps[0].classList.add(
+            "completed"
+        );
+
+    }
+
+
+    // Slot confirmed
+    if (steps[1]) {
+
+        steps[1].classList.add(
+            "completed"
+        );
+
+    }
+
+
+    // In queue
+    if (steps[2]) {
+
+        steps[2].classList.add(
+            "active"
+        );
+
+    }
+
+}
+
+
+// ==========================================================
+// LOAD PREVIOUS PROCUREMENT
+// ==========================================================
+
+function loadProcurementStatus(user) {
+
+    if (
+        !user ||
+        !user.procurement
+    ) {
+
+        const section =
+            document.getElementById(
+                "procurementStatusSection"
+            );
+
+        if (section) {
+
+            section.classList.add(
+                "hidden"
+            );
+
+        }
+
+        return;
+
+    }
+
+
+    procurementData =
+        user.procurement;
+
+
+    showProcurementStatus(
+        user.procurement
+    );
+
+}
+
+
+// ==========================================================
+// INPUT RESTRICTIONS
+// ==========================================================
+
+function setupInputValidation() {
+
+    const mobileInputs = [
+
+        "loginMobile",
+        "regMobile"
+
+    ];
+
+
+    mobileInputs.forEach(id => {
+
+        const input =
+            document.getElementById(id);
+
+        if (!input) return;
+
+
+        input.addEventListener(
+            "input",
+            () => {
+
+                input.value =
+                    input.value
+                        .replace(
+                            /[^0-9]/g,
+                            ""
+                        )
+                        .slice(0, 10);
+
+            }
+        );
+
+    });
+
+
+    const aadhaar =
+        document.getElementById(
+            "regAadhaar"
+        );
+
+
+    if (aadhaar) {
+
+        aadhaar.addEventListener(
+            "input",
+            () => {
+
+                aadhaar.value =
+                    aadhaar.value
+                        .replace(
+                            /[^0-9]/g,
+                            ""
+                        )
+                        .slice(0, 12);
+
+            }
+        );
+
+    }
+
+}
+
+
+// ==========================================================
+// EXISTING LOGIN CHECK
+// ==========================================================
 
 function checkExistingLogin() {
 
-    const savedUser =
-        JSON.parse(
-            localStorage.getItem(
-                "samayKrishiLoggedInUser"
-            )
+    const saved =
+        localStorage.getItem(
+            "samayKrishiLoggedInUser"
         );
 
 
-    if (!savedUser) return;
+    if (!saved) return;
 
 
-    const user =
-        users.find(
-            u => u.id === savedUser.id
+    try {
+
+        const user =
+            JSON.parse(saved);
+
+
+        const actualUser =
+            users.find(
+                u => u.id === user.id
+            );
+
+
+        if (
+            actualUser &&
+            actualUser.role === "farmer"
+        ) {
+
+            currentUser =
+                actualUser;
+
+            // Don't instantly hide homepage on refresh
+            // unless a real logged-in session exists.
+            openDashboard(
+                actualUser
+            );
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Login session error:",
+            error
         );
 
+    }
 
-    if (!user) return;
-
-
-    currentUser = user;
-
-    // We intentionally do NOT
-    // automatically show personal data
-    // on the homepage.
-
-    console.log(
-        "Existing Samay Krishi session found."
-    );
 }
 
 
-// Run session check
+// ==========================================================
+// DASHBOARD TEXT UPDATE
+// ==========================================================
 
-checkExistingLogin();
+function updateDashboardTexts() {
+
+    const dashboard =
+        document.getElementById(
+            "farmerDashboard"
+        );
+
+    if (!dashboard) return;
+
+
+    dashboard
+        .querySelectorAll(
+            "[data-en][data-hi]"
+        )
+        .forEach(element => {
+
+            const value =
+                element.getAttribute(
+                    `data-${currentLanguage}`
+                );
+
+            if (value) {
+
+                element.textContent =
+                    value;
+
+            }
+
+        });
+
+}
+
+
+// ==========================================================
+// DEBUG INFO
+// ==========================================================
+
+console.log(
+    "%c Samay Krishi Portal Loaded Successfully ",
+    "background:#2ecc71;color:white;padding:6px;font-weight:bold;"
+);
+
+console.log(
+    "Registered users:",
+    users.length
+);
