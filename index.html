@@ -3,972 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Samay Krishi</title>
-
+    <title>Samay Krishi - Hassle-free Procurement for Farmers</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<!-- ================= LANDING PAGE ================= -->
-
-<div id="landingPage">
-
-    <header class="navbar">
-
-        <div class="logo">
-            <span class="logo-icon">🌾</span>
-            Samay <b>Krishi</b>
-        </div>
-
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#features">Features</a>
-            <a href="#how">How It Works</a>
-        </nav>
-
-        <div class="nav-buttons">
-            <button class="language-btn" onclick="toggleLanguage()">
-                हिन्दी
-            </button>
-
-            <button class="btn outline" onclick="openLogin()">
-                Login
-            </button>
-
-            <button class="btn primary" onclick="openRegister()">
-                Register
-            </button>
-        </div>
-
-    </header>
-
-
-    <!-- HERO -->
-
-    <section class="hero" id="home">
-
-        <div class="hero-text">
-
-            <div class="badge">
-                🌱 Smart Procurement Platform
-            </div>
-
-            <h1>
-                Hassle-free procurement
-                <span>for farmers.</span>
-            </h1>
-
-            <p>
-                Book your procurement slot, track your queue,
-                receive notifications and monitor your payment
-                — all from one simple platform.
-            </p>
-
-            <div class="hero-buttons">
-
-                <button class="btn primary" onclick="openRegister()">
-                    👨‍🌾 Register as Farmer
-                </button>
-
-                <button class="btn outline" onclick="openLogin()">
-                    Login to Portal
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="hero-visual">
-
-            <div class="farm-circle">
-
-                <div class="farmer">
-                    👨‍🌾
-                </div>
-
-                <div class="floating-card card1">
-                    📅 Slot Booked
-                </div>
-
-                <div class="floating-card card2">
-                    🎟️ Token A-124
-                </div>
-
-                <div class="floating-card card3">
-                    💰 Payment Tracked
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- FEATURES -->
-
-    <section class="section" id="features">
-
-        <div class="section-heading">
-
-            <h2>Everything a farmer needs</h2>
-
-            <p>
-                Simple technology designed to reduce
-                waiting and uncertainty.
-            </p>
-
-        </div>
-
-
-        <div class="features-grid">
-
-            <div class="feature-card">
-                <div class="feature-icon">📅</div>
-                <h3>Slot Booking</h3>
-                <p>
-                    Select procurement centre,
-                    date and convenient time slot.
-                </p>
-            </div>
-
-
-            <div class="feature-card">
-                <div class="feature-icon">🎟️</div>
-                <h3>Live Queue</h3>
-                <p>
-                    See your token number and
-                    estimated waiting time.
-                </p>
-            </div>
-
-
-            <div class="feature-card">
-                <div class="feature-icon">🔔</div>
-                <h3>Notifications</h3>
-                <p>
-                    Get alerts when your turn
-                    is approaching.
-                </p>
-            </div>
-
-
-            <div class="feature-card">
-                <div class="feature-icon">💰</div>
-                <h3>Payment Tracking</h3>
-                <p>
-                    Track procurement and
-                    payment status.
-                </p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- HOW IT WORKS -->
-
-    <section class="section" id="how">
-
-        <div class="section-heading">
-
-            <h2>How Samay Krishi Works</h2>
-
-            <p>Four simple steps.</p>
-
-        </div>
-
-
-        <div class="steps">
-
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3>Register</h3>
-                <p>Create your account.</p>
-            </div>
-
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3>Book Slot</h3>
-                <p>Select centre and timing.</p>
-            </div>
-
-            <div class="step">
-                <div class="step-number">3</div>
-                <h3>Track Queue</h3>
-                <p>Monitor your token.</p>
-            </div>
-
-            <div class="step">
-                <div class="step-number">4</div>
-                <h3>Get Paid</h3>
-                <p>Track your payment.</p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <footer>
-
-        <strong>🌾 Samay Krishi</strong>
-
-        <span>
-            Hassle-free procurement for farmers.
-        </span>
-
-    </footer>
-
-</div>
-
-
-<!-- ================= LOGIN MODAL ================= -->
-
-<div class="modal" id="loginModal">
-
-    <div class="modal-box">
-
-        <button class="close" onclick="closeModal('loginModal')">
-            ×
-        </button>
-
-        <h2>Welcome Back 👋</h2>
-
-        <p class="modal-subtitle">
-            Login to your Samay Krishi account
-        </p>
-
-
-        <div class="roles">
-
-            <div class="role selected"
-                 onclick="selectRole(this,'Farmer')">
-
-                <span>👨‍🌾</span>
-                <strong>Farmer</strong>
-
-            </div>
-
-            <div class="role"
-                 onclick="selectRole(this,'Admin')">
-
-                <span>🧑‍💼</span>
-                <strong>Admin</strong>
-
-            </div>
-
-            <div class="role"
-                 onclick="selectRole(this,'Centre')">
-
-                <span>🏢</span>
-                <strong>Centre</strong>
-
-            </div>
-
-        </div>
-
-
-        <form onsubmit="handleLogin(event)">
-
-            <label>Mobile Number</label>
-
-            <input
-                id="loginMobile"
-                type="tel"
-                inputmode="numeric"
-                maxlength="10"
-                placeholder="10-digit mobile number"
-                required
-            >
-
-            <small id="loginMobileError" class="error">
-                Enter exactly 10 digits.
-            </small>
-
-
-            <label>Password</label>
-
-            <input
-                id="loginPassword"
-                type="password"
-                placeholder="Enter password"
-                required
-            >
-
-
-            <div class="form-bottom">
-
-                <span onclick="switchToRegister()">
-                    New farmer? Register
-                </span>
-
-                <button class="btn primary">
-                    Login →
-                </button>
-
-            </div>
-
-        </form>
-
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button class="lang-btn active" data-lang="en">English</button>
+        <button class="lang-btn" data-lang="hi">हिंदी</button>
     </div>
 
-</div>
-
-
-<!-- ================= REGISTER MODAL ================= -->
-
-<div class="modal" id="registerModal">
-
-    <div class="modal-box">
-
-        <button class="close" onclick="closeModal('registerModal')">
-            ×
-        </button>
-
-        <h2>Create Farmer Account 🌾</h2>
-
-        <p class="modal-subtitle">
-            Register once and access procurement services.
-        </p>
-
-
-        <form onsubmit="handleRegister(event)">
-
-            <div class="form-grid">
-
-                <div>
-                    <label>Full Name *</label>
-
-                    <input
-                        id="regName"
-                        type="text"
-                        placeholder="Full name"
-                        required
-                    >
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🌾</div>
+                    <div class="logo-text">
+                        <h1>Samay Krishi</h1>
+                        <p class="tagline" data-en="Hassle-free procurement for farmers." data-hi="किसानों के लिए परेशानी मुक्त खरीद।">Hassle-free procurement for farmers.</p>
+                    </div>
                 </div>
-
-
-                <div>
-                    <label>Mobile Number *</label>
-
-                    <input
-                        id="regMobile"
-                        type="tel"
-                        inputmode="numeric"
-                        maxlength="10"
-                        placeholder="10-digit mobile number"
-                        required
-                    >
-
-                    <small id="mobileError" class="error">
-                        Mobile number must contain exactly 10 digits.
-                    </small>
-                </div>
-
-
-                <div>
-                    <label>Aadhaar Number / Farmer ID *</label>
-
-                    <input
-                        id="regAadhaar"
-                        type="text"
-                        inputmode="numeric"
-                        maxlength="12"
-                        placeholder="12-digit number"
-                        required
-                    >
-
-                    <small id="aadhaarError" class="error">
-                        Enter exactly 12 digits.
-                    </small>
-                </div>
-
-
-                <div>
-                    <label>Village *</label>
-
-                    <input
-                        id="regVillage"
-                        type="text"
-                        placeholder="Village name"
-                        required
-                    >
-                </div>
-
-
-                <div>
-                    <label>Password *</label>
-
-                    <input
-                        id="regPassword"
-                        type="password"
-                        minlength="6"
-                        placeholder="Minimum 6 characters"
-                        required
-                    >
-                </div>
-
-
-                <div>
-                    <label>Confirm Password *</label>
-
-                    <input
-                        id="regConfirmPassword"
-                        type="password"
-                        placeholder="Confirm password"
-                        required
-                    >
-
-                    <small id="passwordError" class="error">
-                        Passwords do not match.
-                    </small>
-                </div>
-
             </div>
+        </header>
 
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <h2 class="welcome-title" data-en="Welcome to Samay Krishi" data-hi="Samay Krishi में आपका स्वागत है">Welcome to Samay Krishi</h2>
+                <p class="welcome-text" data-en="Direct connection between farmers and buyers. Transparent pricing. Fair trade." data-hi="किसानों और खरीदारों के बीच सीधा संबंध। पारदर्शी मूल्य। न्यायसंगत व्यापार।">Direct connection between farmers and buyers. Transparent pricing. Fair trade.</p>
+            </section>
 
-            <div class="form-bottom">
-
-                <span onclick="switchToLogin()">
-                    Already registered? Login
-                </span>
-
-                <button class="btn primary">
-                    Create Account
-                </button>
-
-            </div>
-
-        </form>
-
-    </div>
-
-</div>
-
-
-<!-- ================= DASHBOARD ================= -->
-
-<div id="dashboard" class="dashboard">
-
-    <header class="dashboard-nav">
-
-        <div class="logo">
-            🌾 Samay <b>Krishi</b>
-        </div>
-
-        <div class="user">
-
-            <span id="avatar">👨‍🌾</span>
-
-            <strong id="dashboardUser">
-                Farmer
-            </strong>
-
-            <button class="btn outline"
-                    onclick="logout()">
-                Logout
-            </button>
-
-        </div>
-
-    </header>
-
-
-    <main class="dashboard-content">
-
-        <h2 id="welcome">
-            Welcome to Samay Krishi 👋
-        </h2>
-
-        <p class="dashboard-subtitle">
-            Manage your procurement journey from one place.
-        </p>
-
-
-        <!-- FARMER -->
-
-        <div id="farmerDashboard">
-
-            <div class="stats">
-
-                <div class="stat">
-                    <small>My Slot</small>
-                    <strong id="slotStat">
-                        Not Booked
-                    </strong>
-                </div>
-
-                <div class="stat">
-                    <small>My Token</small>
-                    <strong id="tokenStat">
-                        —
-                    </strong>
-                </div>
-
-                <div class="stat">
-                    <small>Procurement</small>
-                    <strong>In Progress</strong>
-                </div>
-
-                <div class="stat">
-                    <small>Payment</small>
-                    <strong>Processing</strong>
-                </div>
-
-            </div>
-
-
-            <div class="dashboard-grid">
-
-                <div class="panel">
-
-                    <h3>Quick Actions</h3>
-
-                    <div class="quick-actions">
-
-                        <div onclick="openBooking()">
-                            📅
-                            <strong>Book Slot</strong>
-                            <small>Select timing</small>
-                        </div>
-
-                        <div onclick="showQueue()">
-                            🎟️
-                            <strong>Live Queue</strong>
-                            <small>Track token</small>
-                        </div>
-
-                        <div onclick="showProcurement()">
-                            📦
-                            <strong>Procurement</strong>
-                            <small>Track produce</small>
-                        </div>
-
-                        <div onclick="showPayment()">
-                            💰
-                            <strong>Payment</strong>
-                            <small>Track payment</small>
-                        </div>
-
+            <!-- Role Selection Section -->
+            <section class="role-section">
+                <h2 class="section-title" data-en="Select Your Role" data-hi="अपनी भूमिका चुनें">Select Your Role</h2>
+                <div class="role-cards">
+                    <!-- Farmer Card -->
+                    <div class="role-card farmer-card" data-role="farmer">
+                        <div class="role-icon">👨‍🌾</div>
+                        <h3 data-en="Farmer" data-hi="किसान">Farmer</h3>
+                        <p data-en="Sell your produce directly" data-hi="अपनी उपज सीधे बेचें">Sell your produce directly</p>
+                        <button class="role-btn" data-en="Continue as Farmer" data-hi="किसान के रूप में जारी रखें">Continue as Farmer</button>
                     </div>
 
-                </div>
-
-
-                <div class="panel">
-
-                    <h3>🔔 Notifications</h3>
-
-                    <div class="notification">
-                        <strong>Slot Reminder</strong>
-                        <p>Your booking updates will appear here.</p>
+                    <!-- Procurement Admin Card -->
+                    <div class="role-card admin-card" data-role="admin">
+                        <div class="role-icon">👔</div>
+                        <h3 data-en="Procurement Admin" data-hi="खरीद प्रशासक">Procurement Admin</h3>
+                        <p data-en="Manage procurement activities" data-hi="खरीद गतिविधियों का प्रबंधन करें">Manage procurement activities</p>
+                        <button class="role-btn" data-en="Continue as Admin" data-hi="प्रशासक के रूप में जारी रखें">Continue as Admin</button>
                     </div>
 
-                    <div class="notification">
-                        <strong>Payment Update</strong>
-                        <p>Payment notifications will appear here.</p>
+                    <!-- Procurement Centre Card -->
+                    <div class="role-card centre-card" data-role="centre">
+                        <div class="role-icon">🏢</div>
+                        <h3 data-en="Procurement Centre" data-hi="खरीद केंद्र">Procurement Centre</h3>
+                        <p data-en="Manage collection centers" data-hi="संग्रहण केंद्रों का प्रबंधन करें">Manage collection centers</p>
+                        <button class="role-btn" data-en="Continue as Centre" data-hi="केंद्र के रूप में जारी रखें">Continue as Centre</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="feature-item">
+                <span class="feature-icon">✅</span>
+                <h4 data-en="Secure Login" data-hi="सुरक्षित लॉगिन">Secure Login</h4>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">📱</span>
+                <h4 data-en="Mobile Friendly" data-hi="मोबाइल अनुकूल">Mobile Friendly</h4>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">💰</span>
+                <h4 data-en="Fair Pricing" data-hi="न्यायसंगत मूल्य निर्धारण">Fair Pricing</h4>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🔒</span>
+                <h4 data-en="Data Safe" data-hi="डेटा सुरक्षित">Data Safe</h4>
+            </div>
+        </section>
+    </div>
+
+    <!-- LOGIN/REGISTRATION POPUP -->
+    <div id="authModal" class="modal hidden">
+        <div class="modal-content auth-modal">
+            <button class="close-btn" id="closeModal">&times;</button>
+            
+            <!-- Login Tab -->
+            <div class="auth-tab active" id="loginTab">
+                <h2 class="modal-title" data-en="Login" data-hi="लॉगिन">Login</h2>
+                <p class="modal-subtitle" id="roleLabel"></p>
+
+                <form id="loginForm" class="auth-form">
+                    <!-- Mobile Number -->
+                    <div class="form-group">
+                        <label data-en="Mobile Number (10 digits)" data-hi="मोबाइल नंबर (10 अंक)">Mobile Number (10 digits)</label>
+                        <input 
+                            type="tel" 
+                            id="loginMobile" 
+                            class="form-input" 
+                            placeholder="98XXXXXXXXX"
+                            maxlength="10"
+                            pattern="[0-9]{10}"
+                            required
+                        >
+                        <span class="error-message" id="loginMobileError"></span>
                     </div>
 
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- ADMIN -->
-
-        <div id="adminDashboard" class="hidden">
-
-            <div class="stats">
-
-                <div class="stat">
-                    <small>Today's Farmers</small>
-                    <strong>128</strong>
-                </div>
-
-                <div class="stat">
-                    <small>Waiting</small>
-                    <strong>36</strong>
-                </div>
-
-                <div class="stat">
-                    <small>Procured Today</small>
-                    <strong>84</strong>
-                </div>
-
-                <div class="stat">
-                    <small>Pending Payments</small>
-                    <strong>17</strong>
-                </div>
-
-            </div>
-
-
-            <div class="panel large-panel">
-
-                <h3>📊 Procurement Overview</h3>
-
-                <p>
-                    Monitor farmer bookings, queue movement,
-                    procurement completion and payment processing.
-                </p>
-
-                <button class="btn primary"
-                        onclick="showToast('Queue management opened')">
-                    Manage Live Queue
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- CENTRE -->
-
-        <div id="centreDashboard" class="hidden">
-
-            <div class="stats">
-
-                <div class="stat">
-                    <small>Current Token</small>
-                    <strong>A-118</strong>
-                </div>
-
-                <div class="stat">
-                    <small>Farmers Waiting</small>
-                    <strong>24</strong>
-                </div>
-
-                <div class="stat">
-                    <small>Completed</small>
-                    <strong>73</strong>
-                </div>
-
-                <div class="stat">
-                    <small>Capacity</small>
-                    <strong>82%</strong>
-                </div>
-
-            </div>
-
-
-            <div class="dashboard-grid">
-
-                <div class="panel">
-
-                    <h3>🎟️ Live Queue Control</h3>
-
-                    <div class="queue-box">
-
-                        <small>Currently Serving</small>
-
-                        <div class="big-token">
-                            A-118
-                        </div>
-
-                        <p>
-                            Next token:
-                            <strong>A-119</strong>
-                        </p>
-
-                        <button
-                            class="btn primary"
-                            onclick="showToast('Next farmer called')">
-
-                            Call Next Farmer →
-
-                        </button>
-
+                    <!-- Password -->
+                    <div class="form-group">
+                        <label data-en="Password" data-hi="पासवर्ड">Password</label>
+                        <input 
+                            type="password" 
+                            id="loginPassword" 
+                            class="form-input" 
+                            placeholder="••••••••"
+                            required
+                        >
+                        <span class="error-message" id="loginPasswordError"></span>
                     </div>
 
-                </div>
+                    <button type="submit" class="submit-btn" data-en="Login" data-hi="लॉगिन">Login</button>
 
-
-                <div class="panel">
-
-                    <h3>Centre Actions</h3>
-
-                    <button
-                        class="btn primary full"
-                        onclick="showToast('Farmer verification opened')">
-                        Verify Farmer
-                    </button>
-
-                    <button
-                        class="btn outline full"
-                        onclick="showToast('Procurement update opened')">
-                        Update Procurement
-                    </button>
-
-                    <button
-                        class="btn outline full"
-                        onclick="showToast('Payment update opened')">
-                        Update Payment
-                    </button>
-
-                </div>
-
+                    <p class="auth-switch">
+                        <span data-en="Don't have an account?" data-hi="खाता नहीं है?">Don't have an account?</span>
+                        <a href="#" class="switch-link" id="toRegister" data-en="Register here" data-hi="यहां पंजीकरण करें">Register here</a>
+                    </p>
+                </form>
             </div>
 
+            <!-- Registration Tab -->
+            <div class="auth-tab" id="registerTab">
+                <h2 class="modal-title" data-en="Register" data-hi="पंजीकरण">Register</h2>
+                <p class="modal-subtitle" id="registerRoleLabel"></p>
+
+                <form id="registerForm" class="auth-form">
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label data-en="Full Name" data-hi="पूरा नाम">Full Name</label>
+                        <input 
+                            type="text" 
+                            id="regName" 
+                            class="form-input" 
+                            placeholder="नाम"
+                            required
+                        >
+                        <span class="error-message" id="regNameError"></span>
+                    </div>
+
+                    <!-- Mobile Number -->
+                    <div class="form-group">
+                        <label data-en="Mobile Number (10 digits)" data-hi="मोबाइल नंबर (10 अंक)">Mobile Number (10 digits)</label>
+                        <input 
+                            type="tel" 
+                            id="regMobile" 
+                            class="form-input" 
+                            placeholder="98XXXXXXXXX"
+                            maxlength="10"
+                            pattern="[0-9]{10}"
+                            required
+                        >
+                        <span class="error-message" id="regMobileError"></span>
+                    </div>
+
+                    <!-- Aadhaar Number -->
+                    <div class="form-group">
+                        <label data-en="Aadhaar Number (12 digits)" data-hi="आधार नंबर (12 अंक)">Aadhaar Number (12 digits)</label>
+                        <input 
+                            type="text" 
+                            id="regAadhaar" 
+                            class="form-input" 
+                            placeholder="XXXX XXXX XXXX"
+                            maxlength="12"
+                            pattern="[0-9]{12}"
+                            required
+                        >
+                        <span class="error-message" id="regAadhaarError"></span>
+                    </div>
+
+                    <!-- Village -->
+                    <div class="form-group">
+                        <label data-en="Village Name" data-hi="गांव का नाम">Village Name</label>
+                        <input 
+                            type="text" 
+                            id="regVillage" 
+                            class="form-input" 
+                            placeholder="गांव"
+                            required
+                        >
+                        <span class="error-message" id="regVillageError"></span>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group">
+                        <label data-en="Password (min 8 characters)" data-hi="पासवर्ड (कम से कम 8 वर्ण)">Password (min 8 characters)</label>
+                        <input 
+                            type="password" 
+                            id="regPassword" 
+                            class="form-input" 
+                            placeholder="••••••••"
+                            minlength="8"
+                            required
+                        >
+                        <span class="error-message" id="regPasswordError"></span>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="form-group">
+                        <label data-en="Confirm Password" data-hi="पासवर्ड की पुष्टि करें">Confirm Password</label>
+                        <input 
+                            type="password" 
+                            id="regConfirmPassword" 
+                            class="form-input" 
+                            placeholder="••••••••"
+                            required
+                        >
+                        <span class="error-message" id="regConfirmPasswordError"></span>
+                    </div>
+
+                    <button type="submit" class="submit-btn" data-en="Register" data-hi="पंजीकरण">Register</button>
+
+                    <p class="auth-switch">
+                        <span data-en="Already have an account?" data-hi="पहले से खाता है?">Already have an account?</span>
+                        <a href="#" class="switch-link" id="toLogin" data-en="Login here" data-hi="यहां लॉगिन करें">Login here</a>
+                    </p>
+                </form>
+            </div>
         </div>
-
-    </main>
-
-</div>
-
-
-<!-- ================= BOOK SLOT ================= -->
-
-<div class="modal" id="bookingModal">
-
-    <div class="modal-box">
-
-        <button class="close"
-                onclick="closeModal('bookingModal')">
-            ×
-        </button>
-
-        <h2>📅 Book Procurement Slot</h2>
-
-        <p class="modal-subtitle">
-            Choose your centre, produce, date and time.
-        </p>
-
-
-        <label>Procurement Centre</label>
-
-        <select id="centreSelect">
-            <option value="">Select Centre</option>
-            <option>Varanasi Procurement Centre</option>
-            <option>Gorakhpur Procurement Centre</option>
-            <option>Prayagraj Procurement Centre</option>
-            <option>Lucknow Procurement Centre</option>
-        </select>
-
-
-        <label>Produce</label>
-
-        <select id="produceSelect">
-            <option value="">Select Produce</option>
-            <option>Wheat</option>
-            <option>Rice</option>
-            <option>Paddy</option>
-            <option>Maize</option>
-        </select>
-
-
-        <label>Date</label>
-
-        <input type="date" id="bookingDate">
-
-
-        <label>Time Slot</label>
-
-        <select id="timeSlot">
-            <option value="">Select Time</option>
-            <option>09:00 AM - 10:00 AM</option>
-            <option>10:00 AM - 11:00 AM</option>
-            <option>11:00 AM - 12:00 PM</option>
-            <option>12:00 PM - 01:00 PM</option>
-            <option>02:00 PM - 03:00 PM</option>
-        </select>
-
-
-        <button
-            class="btn primary full"
-            onclick="bookSlot()">
-
-            Confirm Slot Booking
-
-        </button>
-
     </div>
 
-</div>
-
-
-<!-- ================= QUEUE ================= -->
-
-<div class="modal" id="queueModal">
-
-    <div class="modal-box">
-
-        <button class="close"
-                onclick="closeModal('queueModal')">
-            ×
-        </button>
-
-        <h2>🎟️ Live Queue</h2>
-
-        <div class="queue-box">
-
-            <small>Your Token</small>
-
-            <div id="queueToken" class="big-token">
-                A-124
-            </div>
-
-            <p>
-                Your slot:
-                <strong id="queueSlot">
-                    10:00 AM - 11:00 AM
-                </strong>
-            </p>
-
-
-            <div class="queue-info">
-
-                <div>
-                    <small>Currently Serving</small>
-                    <strong>A-118</strong>
-                </div>
-
-                <div>
-                    <small>Farmers Ahead</small>
-                    <strong>6</strong>
-                </div>
-
-                <div>
-                    <small>Estimated Wait</small>
-                    <strong>~30 min</strong>
-                </div>
-
-            </div>
-
+    <!-- SUCCESS POPUP -->
+    <div id="successModal" class="modal hidden">
+        <div class="modal-content success-modal">
+            <div class="success-icon">✅</div>
+            <h2 class="success-title" id="successTitle"></h2>
+            <p class="success-message" id="successMessage"></p>
+            <button class="submit-btn" id="closeSuccess" data-en="Continue" data-hi="जारी रखें">Continue</button>
         </div>
-
     </div>
 
-</div>
+    <!-- Error Notification -->
+    <div id="errorNotification" class="notification error-notification hidden"></div>
 
-
-<!-- ================= PROCUREMENT ================= -->
-
-<div class="modal" id="procurementModal">
-
-    <div class="modal-box">
-
-        <button class="close"
-                onclick="closeModal('procurementModal')">
-            ×
-        </button>
-
-        <h2>📦 Procurement Status</h2>
-
-        <div class="timeline">
-
-            <div class="timeline-item done">
-                <span>✓</span>
-                <div>
-                    <strong>Produce Submitted</strong>
-                    <small>Completed</small>
-                </div>
-            </div>
-
-            <div class="timeline-item done">
-                <span>✓</span>
-                <div>
-                    <strong>Quality Check</strong>
-                    <small>Completed</small>
-                </div>
-            </div>
-
-            <div class="timeline-item done">
-                <span>✓</span>
-                <div>
-                    <strong>Procurement Completed</strong>
-                    <small>Completed</small>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <span>4</span>
-                <div>
-                    <strong>Payment Processing</strong>
-                    <small>In Progress</small>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <span>5</span>
-                <div>
-                    <strong>Payment Received</strong>
-                    <small>Pending</small>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- ================= PAYMENT ================= -->
-
-<div class="modal" id="paymentModal">
-
-    <div class="modal-box">
-
-        <button class="close"
-                onclick="closeModal('paymentModal')">
-            ×
-        </button>
-
-        <h2>💰 Payment Status</h2>
-
-        <div class="payment-amount">
-
-            <small>Total Amount</small>
-
-            <h1>₹24,500</h1>
-
-        </div>
-
-
-        <div class="payment-details">
-
-            <p>
-                <strong>Status:</strong>
-                <span>● Processing</span>
-            </p>
-
-            <p>
-                <strong>Payment Mode:</strong>
-                Bank Transfer
-            </p>
-
-            <p>
-                <strong>Transaction ID:</strong>
-                TXN1234567890
-            </p>
-
-            <p>
-                <strong>Expected Credit:</strong>
-                Within 2 working days
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- TOAST -->
-
-<div id="toast" class="toast">
-    <span id="toastMessage"></span>
-</div>
-
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
