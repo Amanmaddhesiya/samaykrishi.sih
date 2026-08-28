@@ -2430,39 +2430,36 @@ function updateStatusTimeline(
 // ==========================================================
 // LOAD PREVIOUS PROCUREMENT
 // ==========================================================
-
-function loadProcurementStatus(
-    user
-) {
+function loadProcurementStatus(user) {
 
     const section =
         document.getElementById(
             "procurementStatusSection"
         );
 
+    if (!section) return;
 
-    if (
-        !user ||
-        !user.procurement
-    ) {
+    // Status hidden by default
+    if (!user || !user.procurement) {
 
-        section?.classList.add(
-            "hidden"
-        );
+        section.classList.add("hidden");
+
+        section.style.display = "none";
 
         return;
-
     }
 
-
+    // User has confirmed a slot
     procurementData =
         user.procurement;
 
+    section.classList.remove("hidden");
+
+    section.style.display = "";
 
     showProcurementStatus(
         user.procurement
     );
-
 }
 
 
