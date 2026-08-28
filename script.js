@@ -1420,6 +1420,20 @@ function openDashboard(user) {
     fillFarmerProfile(user);
 
     updateDashboardTexts();
+// Keep procurement status hidden until
+// the farmer confirms a slot.
+const statusSection =
+    document.getElementById(
+        "procurementStatusSection"
+    );
+
+if (statusSection) {
+
+    statusSection.classList.add("hidden");
+
+    statusSection.style.display = "none";
+}
+
 
     loadProcurementStatus(user);
 
