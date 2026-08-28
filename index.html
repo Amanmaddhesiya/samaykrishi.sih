@@ -248,7 +248,651 @@
 
     <!-- Error Notification -->
     <div id="errorNotification" class="notification error-notification hidden"></div>
+<!-- ==========================================
+     FARMER DASHBOARD
+     ========================================== -->
+<div id="farmerDashboard" class="dashboard-page hidden">
 
+    <!-- Dashboard Header -->
+    <header class="dashboard-header">
+        <div class="dashboard-brand">
+            <div class="dashboard-logo">🌾</div>
+            <div>
+                <h1>Samay Krishi</h1>
+                <p data-en="Farmer Dashboard"
+                   data-hi="किसान डैशबोर्ड">
+                    Farmer Dashboard
+                </p>
+            </div>
+        </div>
+
+        <div class="dashboard-actions">
+            <button id="dashboardLangBtn" class="dashboard-icon-btn">
+                🌐 <span>EN / हिंदी</span>
+            </button>
+
+            <button id="logoutBtn" class="logout-btn">
+                🚪 <span data-en="Logout" data-hi="लॉगआउट">Logout</span>
+            </button>
+        </div>
+    </header>
+
+
+    <!-- Dashboard Content -->
+    <main class="dashboard-content">
+
+        <!-- Welcome Card -->
+        <section class="dashboard-welcome-card">
+
+            <div class="welcome-farmer-icon">
+                👨‍🌾
+            </div>
+
+            <div class="welcome-info">
+                <span data-en="Welcome back,"
+                      data-hi="वापसी पर स्वागत है,">
+                    Welcome back,
+                </span>
+
+                <h2 id="dashboardFarmerName">
+                    Farmer
+                </h2>
+
+                <p data-en="Let's make your procurement hassle-free."
+                   data-hi="आइए आपकी खरीद प्रक्रिया को आसान बनाएं।">
+                    Let's make your procurement hassle-free.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- User Information -->
+        <section class="dashboard-section">
+
+            <div class="dashboard-section-title">
+                <div>
+                    <span class="section-small-label">
+                        👤 Farmer Profile
+                    </span>
+
+                    <h2 data-en="Your Information"
+                        data-hi="आपकी जानकारी">
+                        Your Information
+                    </h2>
+                </div>
+            </div>
+
+
+            <div class="farmer-info-grid">
+
+                <div class="info-box">
+                    <span>👤</span>
+                    <div>
+                        <small data-en="Name"
+                               data-hi="नाम">
+                            Name
+                        </small>
+                        <strong id="profileName">-</strong>
+                    </div>
+                </div>
+
+
+                <div class="info-box">
+                    <span>🌾</span>
+                    <div>
+                        <small data-en="Farmer Name"
+                               data-hi="किसान का नाम">
+                            Farmer Name
+                        </small>
+                        <strong id="profileFarmerName">-</strong>
+                    </div>
+                </div>
+
+
+                <div class="info-box">
+                    <span>📱</span>
+                    <div>
+                        <small data-en="Mobile Number"
+                               data-hi="मोबाइल नंबर">
+                            Mobile Number
+                        </small>
+                        <strong id="profileMobile">-</strong>
+                    </div>
+                </div>
+
+
+                <div class="info-box">
+                    <span>🪪</span>
+                    <div>
+                        <small data-en="Aadhaar / Farmer ID"
+                               data-hi="आधार / किसान आईडी">
+                            Aadhaar / Farmer ID
+                        </small>
+                        <strong id="profileAadhaar">-</strong>
+                    </div>
+                </div>
+
+
+                <div class="info-box">
+                    <span>📍</span>
+                    <div>
+                        <small data-en="Village"
+                               data-hi="गांव">
+                            Village
+                        </small>
+                        <strong id="profileVillage">-</strong>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Procurement Action -->
+        <section class="procurement-action-card">
+
+            <div class="action-icon">
+                🌱
+            </div>
+
+            <div class="action-content">
+
+                <span class="section-small-label"
+                      data-en="NEW PROCUREMENT"
+                      data-hi="नई खरीद">
+                    NEW PROCUREMENT
+                </span>
+
+                <h2 data-en="Book Your Procurement Slot"
+                    data-hi="अपना खरीद स्लॉट बुक करें">
+                    Book Your Procurement Slot
+                </h2>
+
+                <p data-en="Tell us about your crop and preferred selling date. We'll suggest the best available slot for you."
+                   data-hi="अपनी फसल और पसंदीदा बिक्री तारीख बताएं। हम आपके लिए सबसे अच्छा उपलब्ध स्लॉट सुझाएंगे।">
+                    Tell us about your crop and preferred selling date.
+                    We'll suggest the best available slot for you.
+                </p>
+
+                <button id="startProcurementBtn"
+                        class="primary-dashboard-btn">
+
+                    <span data-en="Start Procurement"
+                          data-hi="खरीद शुरू करें">
+                        Start Procurement
+                    </span>
+
+                    <span class="arrow">→</span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Procurement Status -->
+        <section id="procurementStatusSection"
+                 class="dashboard-section status-section hidden">
+
+            <div class="dashboard-section-title">
+
+                <div>
+                    <span class="section-small-label">
+                        📦 PROCUREMENT
+                    </span>
+
+                    <h2 data-en="Procurement Status"
+                        data-hi="खरीद की स्थिति">
+                        Procurement Status
+                    </h2>
+                </div>
+
+                <span id="statusBadge"
+                      class="status-badge">
+                    Registered
+                </span>
+
+            </div>
+
+
+            <!-- Status Timeline -->
+            <div class="status-timeline">
+
+                <div class="status-step completed">
+
+                    <div class="status-circle">
+                        ✓
+                    </div>
+
+                    <div class="status-step-text">
+                        <strong data-en="Registration"
+                                data-hi="पंजीकरण">
+                            Registration
+                        </strong>
+
+                        <small data-en="Completed"
+                               data-hi="पूरा हुआ">
+                            Completed
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-line completed-line"></div>
+
+
+                <div class="status-step completed">
+
+                    <div class="status-circle">
+                        ✓
+                    </div>
+
+                    <div class="status-step-text">
+                        <strong data-en="Slot Confirmed"
+                                data-hi="स्लॉट की पुष्टि">
+                            Slot Confirmed
+                        </strong>
+
+                        <small id="confirmedSlotText">
+                            -
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-line"></div>
+
+
+                <div class="status-step active">
+
+                    <div class="status-circle">
+                        3
+                    </div>
+
+                    <div class="status-step-text">
+                        <strong data-en="In Queue"
+                                data-hi="कतार में">
+                            In Queue
+                        </strong>
+
+                        <small data-en="Waiting for procurement"
+                               data-hi="खरीद की प्रतीक्षा">
+                            Waiting for procurement
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-line"></div>
+
+
+                <div class="status-step">
+
+                    <div class="status-circle">
+                        4
+                    </div>
+
+                    <div class="status-step-text">
+                        <strong data-en="Procurement"
+                                data-hi="खरीद">
+                            Procurement
+                        </strong>
+
+                        <small data-en="Not started"
+                               data-hi="अभी शुरू नहीं हुआ">
+                            Not started
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-line"></div>
+
+
+                <div class="status-step">
+
+                    <div class="status-circle">
+                        5
+                    </div>
+
+                    <div class="status-step-text">
+                        <strong data-en="Payment"
+                                data-hi="भुगतान">
+                            Payment
+                        </strong>
+
+                        <small data-en="Pending"
+                               data-hi="लंबित">
+                            Pending
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- ==========================================
+     PROCUREMENT DETAILS POPUP
+     ========================================== -->
+
+<div id="procurementModal"
+     class="modal hidden">
+
+    <div class="modal-content procurement-modal">
+
+        <button class="close-btn"
+                id="closeProcurementModal">
+            &times;
+        </button>
+
+
+        <div class="procurement-modal-header">
+
+            <div class="procurement-modal-icon">
+                🌾
+            </div>
+
+            <h2 data-en="Procurement Details"
+                data-hi="खरीद की जानकारी">
+                Procurement Details
+            </h2>
+
+            <p data-en="Tell us about the produce you want to sell."
+               data-hi="जिस उपज को आप बेचना चाहते हैं उसकी जानकारी दें।">
+                Tell us about the produce you want to sell.
+            </p>
+
+        </div>
+
+
+        <form id="procurementForm"
+              class="auth-form">
+
+
+            <!-- Crop -->
+            <div class="form-group">
+
+                <label data-en="Crop Type"
+                       data-hi="फसल का प्रकार">
+                    Crop Type
+                </label>
+
+                <select id="cropType"
+                        class="form-input"
+                        required>
+
+                    <option value=""
+                            data-en="Select Crop"
+                            data-hi="फसल चुनें">
+                        Select Crop
+                    </option>
+
+                    <option value="Wheat"
+                            data-en="🌾 Wheat"
+                            data-hi="🌾 गेहूं">
+                        🌾 Wheat
+                    </option>
+
+                    <option value="Rice"
+                            data-en="🌾 Rice"
+                            data-hi="🌾 चावल">
+                        🌾 Rice
+                    </option>
+
+                    <option value="Paddy"
+                            data-en="🌱 Paddy"
+                            data-hi="🌱 धान">
+                        🌱 Paddy
+                    </option>
+
+                    <option value="Maize"
+                            data-en="🌽 Maize"
+                            data-hi="🌽 मक्का">
+                        🌽 Maize
+                    </option>
+
+                    <option value="Other"
+                            data-en="🌿 Other"
+                            data-hi="🌿 अन्य">
+                        🌿 Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Selling Date -->
+            <div class="form-group">
+
+                <label data-en="Preferred Selling Date"
+                       data-hi="पसंदीदा बिक्री तारीख">
+                    Preferred Selling Date
+                </label>
+
+                <input type="date"
+                       id="sellingDate"
+                       class="form-input"
+                       required>
+
+            </div>
+
+
+            <!-- Weight -->
+            <div class="form-group">
+
+                <label data-en="Estimated Weight (kg)"
+                       data-hi="अनुमानित वजन (किग्रा)">
+                    Estimated Weight (kg)
+                </label>
+
+                <input type="number"
+                       id="cropWeight"
+                       class="form-input"
+                       min="1"
+                       placeholder="Example: 500"
+                       required>
+
+            </div>
+
+
+            <!-- Location -->
+            <div class="form-group">
+
+                <label data-en="Preferred Procurement Centre"
+                       data-hi="पसंदीदा खरीद केंद्र">
+                    Preferred Procurement Centre
+                </label>
+
+                <select id="preferredCentre"
+                        class="form-input"
+                        required>
+
+                    <option value=""
+                            data-en="Select Centre"
+                            data-hi="केंद्र चुनें">
+                        Select Centre
+                    </option>
+
+                    <option value="Centre A">
+                        🏢 Procurement Centre A
+                    </option>
+
+                    <option value="Centre B">
+                        🏢 Procurement Centre B
+                    </option>
+
+                    <option value="Centre C">
+                        🏢 Procurement Centre C
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button type="submit"
+                    class="submit-btn">
+
+                <span data-en="Find Best Slot"
+                      data-hi="सबसे अच्छा स्लॉट खोजें">
+                    Find Best Slot
+                </span>
+
+                <span>→</span>
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     SLOT RECOMMENDATION POPUP
+     ========================================== -->
+
+<div id="slotModal"
+     class="modal hidden">
+
+    <div class="modal-content slot-modal">
+
+        <div class="slot-recommendation-icon">
+            🤖
+        </div>
+
+        <span class="recommended-label"
+              data-en="SMART RECOMMENDATION"
+              data-hi="स्मार्ट सुझाव">
+            SMART RECOMMENDATION
+        </span>
+
+        <h2 data-en="Best Slot For You"
+            data-hi="आपके लिए सबसे अच्छा स्लॉट">
+            Best Slot For You
+        </h2>
+
+        <p data-en="Based on your selected date, centre and expected queue."
+           data-hi="आपकी चुनी हुई तारीख, केंद्र और अनुमानित कतार के आधार पर।">
+            Based on your selected date, centre and expected queue.
+        </p>
+
+
+        <div class="slot-card">
+
+            <div class="slot-item">
+
+                <span>📅</span>
+
+                <div>
+                    <small data-en="Date"
+                           data-hi="तारीख">
+                        Date
+                    </small>
+
+                    <strong id="recommendedDate">
+                        -
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="slot-item">
+
+                <span>🕐</span>
+
+                <div>
+                    <small data-en="Time"
+                           data-hi="समय">
+                        Time
+                    </small>
+
+                    <strong id="recommendedTime">
+                        -
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="slot-item">
+
+                <span>📍</span>
+
+                <div>
+                    <small data-en="Centre"
+                           data-hi="केंद्र">
+                        Centre
+                    </small>
+
+                    <strong id="recommendedCentre">
+                        -
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="slot-item">
+
+                <span>👥</span>
+
+                <div>
+                    <small data-en="Estimated Queue"
+                           data-hi="अनुमानित कतार">
+                        Estimated Queue
+                    </small>
+
+                    <strong id="recommendedQueue">
+                        -
+                    </strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button id="confirmSlotBtn"
+                class="submit-btn">
+
+            <span data-en="Confirm This Slot"
+                  data-hi="इस स्लॉट की पुष्टि करें">
+                Confirm This Slot
+            </span>
+
+            ✓
+
+        </button>
+
+
+        <button id="changeSlotBtn"
+                class="change-slot-btn"
+                data-en="Choose Another Slot"
+                data-hi="दूसरा स्लॉट चुनें">
+            Choose Another Slot
+        </button>
+
+    </div>
+
+</div>
     <script src="script.js"></script>
 </body>
 </html>
