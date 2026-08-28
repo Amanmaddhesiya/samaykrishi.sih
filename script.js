@@ -2245,7 +2245,7 @@ function showProcurementStatus(
     section.classList.remove(
         "hidden"
     );
-
+section.style.display = "";
 
     setText(
         "confirmedSlotText",
