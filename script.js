@@ -1257,38 +1257,46 @@ function handleRegister(event) {
 // SUCCESS MODAL
 // ==========================================================
 
-function showSuccessModal(
-    title,
-    message
-) {
+function showSuccessModal(title, message) {
 
-    setText(
-        "successTitle",
-        title
-    );
+    const modal = document.getElementById("successModal");
+    const titleElement = document.getElementById("successTitle");
+    const messageElement = document.getElementById("successMessage");
 
+    if (!modal) {
+        console.error("Success modal not found!");
+        return;
+    }
 
-    setText(
-        "successMessage",
-        message
-    );
+    if (titleElement) {
+        titleElement.textContent = title;
+    }
 
+    if (messageElement) {
+        messageElement.textContent = message;
+    }
 
-    document
-        .getElementById("successModal")
-        ?.classList.remove("hidden");
-
+    // Make sure the success popup is actually visible
+    modal.classList.remove("hidden");
+    modal.style.display = "flex";
+    modal.style.visibility = "visible";
+    modal.style.opacity = "1";
+    modal.style.zIndex = "99999";
 }
-
 
 function closeSuccessModal() {
 
-    document
-        .getElementById("successModal")
-        ?.classList.add("hidden");
+    const modal =
+        document.getElementById("successModal");
 
+    if (!modal) return;
+
+    modal.classList.add("hidden");
+
+    modal.style.display = "none";
+    modal.style.visibility = "hidden";
+    modal.style.opacity = "0";
 }
-
 
 // ==========================================================
 // ERROR NOTIFICATION
